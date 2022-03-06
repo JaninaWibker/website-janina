@@ -1,0 +1,62 @@
+body {
+  --dark-background-color: #290221;
+  --dark-primary-color: #ad3b97;
+  --dark-primary-color-opacity: #ad3b9780;
+  --dark-secondary-color: #b64bd0;
+  --dark-tertiary-color: #ffffff;
+  --dark-divider-color: #eb7feb;
+
+  --dark-trans-pink-color: #f7a8b8;
+  --dark-trans-blue-color: #55cdfc;
+  --dark-trans-white-color: #ffffff;
+
+  // --dark-e-color: #e5afe5;
+  // --dark-h-color: #f4f4f4;
+
+  --light-background-color: #ffffff;
+  --light-primary-color: #ad3b97;
+  --light-primary-color-opacity: #ad3b9780;
+  --light-secondary-color: #b64bd0;
+  --light-tertiary-color: #000000;
+  --light-divider-color: #e5afe5;
+
+  --light-trans-pink-color: #f7a8b8;
+  --light-trans-blue-color: #55cdfc;
+  --light-trans-white-color: #ffffff;
+
+  // --light-a-color: #290221;
+  // --light-g-color: #eb7feb;
+  // --light-h-color: #f4f4f4;
+}
+
+body, body.light {
+  --background-color: var(--light-background-color);
+  --primary-color: var(--light-primary-color);
+  --primary-color-opacity: var(--light-primary-color-opacity);
+  --secondary-color: var(--light-secondary-color);
+  --tertiary-color: var(--light-tertiary-color);
+  --divider-color: var(--light-divider-color);
+
+  --trans-pink-color: var(--light-trans-pink-color);
+  --trans-blue-color: var(--light-trans-blue-color);
+  --trans-white-color: var(--light-trans-white-color);
+}
+
+body.dark {
+  --background-color: var(--dark-background-color);
+  --primary-color: var(--dark-primary-color);
+  --primary-color-opacity: var(--dark-primary-color-opacity);
+  --secondary-color: var(--dark-secondary-color);
+  --tertiary-color: var(--dark-tertiary-color);
+  --divider-color: var(--dark-divider-color);
+
+  --trans-pink-color: var(--dark-trans-pink-color);
+  --trans-blue-color: var(--dark-trans-blue-color);
+  --trans-white-color: var(--dark-trans-white-color);
+}
+
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}

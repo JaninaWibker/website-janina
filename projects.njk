@@ -1,0 +1,47 @@
+---
+layout: layouts/home.njk
+title: projects
+templateClass: tmpl-home
+eleventyNavigation:
+  key: projects
+  order: 3
+  title_overwrite: janina's site
+---
+
+{%- from "components/underline.njk" import underline -%}
+{% set projects = [
+  { name: 'docs',            description: 'self hosted maths/compsci wiki (mostly german)',                           link: 'https://docs.janina.lol' },
+  { name: 'notes',           description: 'note taking web app',                                                      link: 'https://git.janina.lol/Notes' },
+  { name: 'dotfiles',        description: 'personal dotfiles for linux and macOS',                                    link: 'https://github.com/JaninaWibker/dots' },
+  { name: 'jdkbd',           description: 'custom mechanical keyboard (pcb & case; split 40% ortho; based on crkbd)', link: 'https://github.com/JaninaWibker/jdkbd' },
+  { name: 'spreadsheets',    description: 'little spreadsheets web app with formula support',                         link: 'https://github.com/JaninaWibker/spreadsheets' },
+  { name: 'auth',            description: 'self-made identity provider',                                              link: 'https://github.com/JaninaWibker/auth' },
+  { name: 'mima-x vm',       description: 'vm & debugger for educational mima-x instruction set',                     link: 'https://github.com/JaninaWibker/mimax-vm' },
+  { name: 'tm_vm',           description: 'turing machine simulator with tikz / LaTeX output (and gif, pdf, ...)',    link: 'https://github.com/JaninaWibker/tm_vm' },
+  { name: 'smart tv system', description: 'university project: displaying useful information on a samrt tv',          link: 'https://git.janina.lol/PSE' }
+] %}
+
+<h1>projects?</h1>
+{{ underline() }}
+
+<div class="projects">
+a list of some of my projects
+
+<table>
+  <tbody>
+    {% for project in projects %}
+      <tr>
+        <td><a href="{{ project.link }}">{{ project.name }}</a></td>
+        <td>{{ project.description }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+  many more unfinished or private projects not listed,<br />
+  you might find something interesting here though:<br />
+  <br />
+  github: <a href="https://github.com/JaninaWibker">...</a><br />
+  personal git server: <a href="https://git.janina.lol">git.janina.lol</a>
+
+</div>

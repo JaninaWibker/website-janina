@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+permalink: 404.html
+eleventyExcludeFromCollections: true
+---
+{%- from "components/underline.njk" import underline -%}
+
+<link rel="stylesheet" href="{{ '/css/404.css' | url }}">
+<div class="error-404">
+
+  <div class="img" tab-index={0}></div>
+
+  <div class="heading-wrapper">
+    <h1>404 - Not Found</h1>
+    {{ underline() }}
+  </div>
+
+  <div class="text">
+
+    <span>the URL seems to be incorrect :/</span><br /><br />
+
+    <span>maybe you wanted to go here?</span><br />
+
+    <div class="links">
+      {%- for entry in collections.all | eleventyNavigation -%}
+      <a href={{ entry.url | url }}>{{ entry.title }}</a>
+      {%- if not loop.last %}<span class="divider">|</span>{% endif -%}
+      {%- endfor %}
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelector('.img').addEventListener('click', () => toggle_theme(undefined))
+    document.querySelector('.img').addEventListener('keypress', e => (e.key === ' ' || e.key === 'Enter') && toggle_theme(undefined))
+  </script>
+
+</div>

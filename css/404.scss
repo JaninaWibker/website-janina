@@ -1,0 +1,63 @@
+body.light .error-404 .img {
+  background-image: url('/img/bongo-cat-black.png');
+}
+
+body.dark .error-404 .img {
+  background-image: url('/img/bongo-cat-white.png');
+}
+
+.error-404 {
+  width: 380px;
+  margin-top: 64px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .img {
+    width: 338px;
+    height: 197px;
+    margin-left: 21px;
+    margin-right: 21px;
+    margin-bottom: 16px;
+  }
+
+  h1::after {
+    content: '*';
+    margin-left: 12px;
+  }
+
+  .heading-wrapper {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    h1 {
+      width: fit-content;
+    }
+  }
+
+  .text {
+    text-align: center;
+    font-family: var(--pxplus);
+    font-size: 16px;
+
+    .links {
+      margin-top: 4px;
+
+      .link, .divider {
+        margin-left: 6px;
+        margin-right: 6px;
+      }
+
+      .link {
+        color: var(--primary-color);
+        text-shadow: calc(var(--shadow-size-x) / 2) calc(var(--shadow-size-y) / 2) var(--primary-color-opacity);
+        text-decoration: none;
+      }
+
+      .divider {
+        color:var(--divider-color);
+        user-select: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "title": "janina's site",
+  "url": "https://janina.lol/",
+  "language": "en",
+  "description": "TODO",
+  "feed": {
+    "subtitle": "TODO",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://janina.lol/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://janina.lol/feed/feed.json"
+  },
+  "author": {
+    "name": "Janina",
+    "email": "me@janina.lol",
+    "url": "https://janina.lol/about"
+  }
+}

@@ -1,0 +1,20 @@
+<ul class="blog-list">
+{% for post in postslist | reverse %}
+  <li>
+    <a class="link" href="{{ post.url | url }}">{{ post.data.title }}</a>
+    <time class="date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time><br />
+    <span class="description">{{ post.data.description }}</span><br />
+
+    {% for tag in post.data.tags | filterTagList %}
+      {% set tag_url %}/tags/{{ tag | slug }}/{% endset %}
+      <a href="{{ tag_url | url }}" class="blog-tag">{{ tag }}</a>
+    {% endfor %}
+  </li>
+{% endfor %}
+</ul>
+
+all tags:
+{% for tag in collections.tagList %}
+  {% set tag_url %}/tags/{{ tag | slug }}/{% endset %}
+  <a href="{{ tag_url | url }}" class="blog-tag">{{ tag }}</a>
+{% endfor %}

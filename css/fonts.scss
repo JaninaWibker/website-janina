@@ -1,0 +1,36 @@
+$pxplus: 'PxPlus_IBM_VGA8';
+$menlo: 'Menlo';
+$sfdisplay: 'SF Pro Display';
+$monospace: $menlo, 'Monaco', 'Roboto Mono', 'Fira Code', 'Hack', 'Andale Mono WT', 'Andale Mono', 'Consolas', 'Lucida Console', 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', 'Courier', monospace;
+$sansserif: -apple-system, BlinkMacSystemFont, $sfdisplay, system-ui, 'Helvetica Neue', 'Roboto', sans-serif;
+
+:root {
+  --pxplus: #{$pxplus};
+  --menlo: #{$menlo};
+  --sfdisplay: #{$sfdisplay};
+  --monospace: #{$monospace};
+  --sansserif: #{$sansserif};
+}
+
+@font-face {
+  font-family: $pxplus;
+  src: local($pxplus), url('/fonts/PxPlus_IBM_VGA8.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: $menlo;
+  src: local($menlo), url('/fonts/Menlo-Regular.ttf');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: $sfdisplay;
+  src: local($sfdisplay), url('/fonts/SFProDisplay.ttf');
+  font-weight: normal;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

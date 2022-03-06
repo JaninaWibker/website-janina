@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/main.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/prism-diff.css' | url }}">
+    <link rel="alternate"  href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
+    <link rel="alternate"  href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+
+    <meta property="og:title"  content="{{ title or metadata.title }}" />
+    <meta property="og:type"   content="website" />
+    <meta property="og:locale" content="en-US" />
+    <meta property="og:url"    content="{{ metadata.url }}{{ page.url.substring(1) }}" />
+    <meta property="og:image"  content="{{ metadata.url }}img/pp.png" />
+  </head>
+  <body>
+
+    {{ content | safe }}
+
+
+    <script>
+      const THEME_STORAGE_KEY = 'janina.lol.theme'
+      const toggle_theme_uninitialized = (storage_key) => (theme) => {
+        if(theme === 'dark') {
+          window.document.body.classList.add('dark')
+          window.document.body.classList.remove('light')
+          localStorage.setItem(storage_key, 'dark')
+        } else if(theme === 'light') {
+          window.document.body.classList.add('light')
+          window.document.body.classList.remove('dark')
+          localStorage.setItem(storage_key, 'light')
+        } else {
+          window.document.body.classList.toggle('dark')
+          window.document.body.classList.toggle('light')
+          localStorage.setItem(storage_key, localStorage.getItem(storage_key) === 'dark' ? 'light' : 'dark')
+        }
+      }
+
+      const determine_initial_theme_uninitialized = (storage_key) => () => {
+        const is_dark_mode     = window.matchMedia("(prefers-color-scheme: dark)").matches
+        const is_light_mode    = window.matchMedia("(prefers-color-scheme: light)").matches
+        const is_not_specified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+        const has_no_support   = !is_dark_mode && !is_light_mode && !is_not_specified
+
+        if(localStorage.getItem(storage_key)) {          // saved theme
+          return localStorage.getItem(storage_key)
+        } else if(!has_no_support && is_dark_mode) {     // system dark mode
+          return 'dark'
+        } else if(!has_no_support && is_light_mode) {    // system light mode
+          return 'light'
+        } else if(!has_no_support && is_not_specified) { // system unspecified
+          return 'light'
+        } else { // default
+          return 'light'
+        }
+      }
+
+      const toggle_theme = toggle_theme_uninitialized(THEME_STORAGE_KEY)
+      const determine_initial_theme = determine_initial_theme_uninitialized(THEME_STORAGE_KEY)
+
+      toggle_theme(determine_initial_theme())
+    </script>
+
+    <!-- Current page: {{ page.url | url }} -->
+  </body>
+</html>

@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+templateClass: tmpl-home
+---
+{%- from "components/header.njk" import header -%}
+{{ header(collections.all, page, header_title) }}
+
+<div class="main">
+  <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    {{ content | safe }}
+  </main>
+</div>
+
+<footer></footer>

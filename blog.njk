@@ -1,0 +1,15 @@
+---
+layout: layouts/home.njk
+permalink: /blog/
+eleventyNavigation:
+  key: blog
+  order: 2
+  title_overwrite: janina's blog
+---
+{%- from "components/underline.njk" import underline -%}
+
+<h1>things i wrote</h1>
+{{ underline() }}
+
+{% set postslist = collections.posts %}
+{% include "bloglist.njk" %}

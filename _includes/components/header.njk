@@ -1,0 +1,39 @@
+{% macro title(pages, current_page, title_overwrite) %}
+{%- if title_overwrite -%}
+{{ title_overwrite }}
+{%- else -%}
+{%- for entry in pages | eleventyNavigation -%}
+  {% if entry.url === current_page.url or (entry.url !== '/' and current_page.url.startsWith(entry.url)) %}
+    {% if entry.title_overwrite %}{{ entry.title_overwrite }}{% else %}janina's site{% endif %}
+  {% endif %}
+{%- endfor -%}
+{% endif %}
+{% endmacro %}
+
+{% macro header(pages, current_page, title_overwrite) %}
+<div class="header-wrapper">
+  <header>
+    <div class="img-container">
+      <div class="lower-image-backdrop"></div>
+      <img class="lower-image" src="/img/pp.png" />
+      <div class="upper-image-backdrop"></div>
+      <img class="upper-image" src="/img/pp.png" tab-index={0} />
+    </div>
+    <div class="text-container">
+      <div class="title">
+        {{ title(pages, current_page, title_overwrite) }}
+      </div>
+      <div class="links">
+        {%- for entry in pages | eleventyNavigation -%}
+        <a class="link{% if entry.url == current_page.url %} active{% endif %}" href={{ entry.url | url }}>{{ entry.title }}</a>
+        {%- if not loop.last %}<span class="divider">|</span>{% endif -%}
+        {%- endfor %}
+      </div>
+    </div>
+    <script>
+      document.querySelector('.upper-image').addEventListener('click', () => toggle_theme(undefined))
+      document.querySelector('.upper-image').addEventListener('keypress', e => (e.key === ' ' || e.key === 'Enter') && toggle_theme(undefined))
+    </script>
+  </header>
+</div>
+{% endmacro %}
