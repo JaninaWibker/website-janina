@@ -2,14 +2,15 @@
   "title": "janina's site",
   "url": "https://janina.lol/",
   "language": "en",
-  "description": "TODO",
+  "description": "my website :3",
   "feed": {
-    "subtitle": "TODO",
+    "subtitle": "things i wrote",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://janina.lol/"
   },
   "jsonfeed": {
+    "subtitle": "things i wrote",
     "path": "/feed/feed.json",
     "url": "https://janina.lol/feed/feed.json"
   },

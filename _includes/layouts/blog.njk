@@ -1,8 +1,9 @@
 ---
 layout: layouts/home.njk
 templateClass: tmpl-blog
+eleventyComputed:
+  is_blog_view: true
 ---
-
 <h1>{{ title }}</h1>
 
 <time class="blog-date" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>

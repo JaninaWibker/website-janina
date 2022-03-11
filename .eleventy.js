@@ -61,6 +61,7 @@ module.exports = function(eleventy_config) {
     return filterTagList([...tagSet])
   })
 
+  // TODO: will have to make some alterations here probably for the intended markdown features
   // Customize Markdown library and settings:
   let markdown_library = markdown_it({
     html: true,

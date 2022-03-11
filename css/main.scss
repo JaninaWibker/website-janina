@@ -12,6 +12,21 @@ body {
   // transition: all 0.25s ease; // TODO: this doesn't work great on initial load
 }
 
+pre {
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
 .main {
   max-width: 860px;
   margin-left: auto;
