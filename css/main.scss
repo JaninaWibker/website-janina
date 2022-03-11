@@ -45,7 +45,7 @@ pre {
   }
 }
 
-footer span {
+footer {
   font-family: var(--monospace);
   font-size: 13px;
 }
@@ -92,11 +92,11 @@ table {
 }
 
 a[href] { // TODO: choose something better here that is distinguishable from other text
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
 
 a[href]:visited {
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .flag-underline {
