@@ -5,10 +5,10 @@
     <time class="date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time><br />
     <span class="description">{{ post.data.description }}</span><br />
 
-    {% for tag in post.data.tags | filterTagList %}
-      {% set tag_url %}/tags/{{ tag | slug }}/{% endset %}
+    {% for tag in post.data.tags | filterTagList -%}
+      {%- set tag_url %}/tags/{{ tag | slug }}/{% endset -%}
       <a href="{{ tag_url | url }}" class="blog-tag">{{ tag }}</a>
-    {% endfor %}
+    {%- endfor %}
   </li>
 {% endfor %}
 </ul>
