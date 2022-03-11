@@ -16,4 +16,4 @@ COPY . /site
 RUN npm run build
 
 FROM nginx:latest
-COPY --from=builder /site /usr/share/nginx/html
+COPY --from=builder /site/_site /usr/share/nginx/html
