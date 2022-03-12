@@ -1,6 +1,8 @@
 header {
 
   width: 500px;
+  padding-left: 10px;
+  padding-right: 10px;
 
   --displacement: 6px;
   --dimensions: 128px;
@@ -85,5 +87,34 @@ header {
       }
     }
 
+  }
+}
+
+@media screen and (max-width: 700px) {
+  header {
+
+    width: 320px;
+
+    --dimensions: 64px;
+    --displacement: 3px;
+    --shadow-size-x: 2px;
+    --shadow-size-y: 2px;
+
+    .text-container {
+
+      margin-left: 10px;
+      margin-right: 10px;
+
+      .title {
+        font-size: 24px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+      }
+
+      .links {
+        margin-top: 12px;
+        font-size: 16px;
+      }
+    }
   }
 }
