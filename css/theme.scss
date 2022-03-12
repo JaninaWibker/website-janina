@@ -55,6 +55,21 @@ body.dark {
   --trans-white-color: var(--dark-trans-white-color);
 }
 
+@media print {
+  body, body.light, body.dark {
+    --background-color: var(--light-background-color);
+    --primary-color: var(--light-primary-color);
+    --primary-color-opacity: var(--light-primary-color-opacity);
+    --secondary-color: var(--light-secondary-color);
+    --tertiary-color: var(--light-tertiary-color);
+    --divider-color: var(--light-divider-color);
+
+    --trans-pink-color: var(--light-trans-pink-color);
+    --trans-blue-color: var(--light-trans-blue-color);
+    --trans-white-color: var(--light-trans-white-color);
+  }
+}
+
 body {
   background-color: var(--background-color);
   margin: 0;

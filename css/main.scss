@@ -264,3 +264,33 @@ a[href].blog-tag:focus {
     }
   }
 }
+
+@media print {
+  .about-me {
+    text-transform: unset;
+  }
+
+  .header-wrapper {
+    margin-top: 16px;
+  }
+
+  header {
+
+    .text-container {
+
+      .title {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .links {
+        display: none;
+      }
+    }
+
+    --dimensions: 96px;
+    --displacement: 4px;
+    --shadow-size-x: 3px;
+    --shadow-size-y: 3px;
+  }
+}
