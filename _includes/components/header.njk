@@ -7,7 +7,7 @@
     {% if entry.title_overwrite %}{{ entry.title_overwrite }}{% else %}janina's site{% endif %}
   {% endif %}
 {%- endfor -%}
-{% endif %}
+{%- endif -%}
 {% endmacro %}
 
 {% macro header(pages, current_page, title_overwrite) %}
@@ -20,9 +20,7 @@
       <img class="upper-image" role="button" alt="profile picture - click or press space/enter to toggle theme" src="/img/pp_smol.png" tab-index={0} />
     </div>
     <div class="text-container">
-      <div class="title">
-        {{ title(pages, current_page, title_overwrite) }}
-      </div>
+      <div class="title">{{ title(pages, current_page, title_overwrite) | trim }}</div>
       <div class="links">
         {%- for entry in pages | eleventyNavigation -%}
         <a class="link{% if entry.url == current_page.url %} active{% endif %}" href={{ entry.url | url }}>{{ entry.title }}</a>

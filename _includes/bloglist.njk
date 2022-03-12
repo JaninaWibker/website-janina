@@ -1,5 +1,4 @@
-<ul class="blog-list">
-{% for post in postslist | reverse %}
+{% macro blogitem(post) %}
   <li>
     <a class="link" href="{{ post.url | url }}">{{ post.data.title }}</a>
     <time class="date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time><br />
@@ -10,11 +9,22 @@
       <a href="{{ tag_url | url }}" class="blog-tag">{{ tag }}</a>
     {%- endfor %}
   </li>
-{% endfor %}
-</ul>
+{% endmacro %}
 
+{% if postslist.length == 0 %}
+Nothing here yet ¯\_(ツ)_/¯
+{% else %}
+<ul class="blog-list">
+{%- for post in postslist | reverse %}
+  {{ blogitem(post) | trim }}
+{%- endfor %}
+</ul>
+{% endif %}
+
+{% if collection.tagList.length != 0 %}
 all tags:
-{% for tag in collections.tagList %}
-  {% set tag_url %}/tags/{{ tag | slug }}/{% endset %}
+{% for tag in collections.tagList -%}
+  {%- set tag_url %}/tags/{{ tag | slug }}/{% endset %}
   <a href="{{ tag_url | url }}" class="blog-tag">{{ tag }}</a>
-{% endfor %}
+{%- endfor %}
+{% endif %}

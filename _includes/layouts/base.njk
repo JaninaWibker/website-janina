@@ -26,10 +26,7 @@
     <link rel="icon" href="img/pp_smol.png" type="image/png" />
   </head>
   <body>
-
-    {{ content | safe }}
-
-
+    {{ content | safe | trim }}
     <script>
       const THEME_STORAGE_KEY = 'janina.lol.theme'
       const toggle_theme_uninitialized = (storage_key) => (theme) => {

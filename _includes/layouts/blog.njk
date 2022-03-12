@@ -14,5 +14,3 @@ eleventyComputed:
 {%- set tag_url %}/tags/{{ tag | slug }}/{% endset -%}
 <a href="{{ tag_url | url }}" class="blog-tag">{{ tag }}</a>
 {%- endfor %}
-
-{# TODO: add a proper footer and move these things there #}
