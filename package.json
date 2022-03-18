@@ -10,7 +10,7 @@
     "start": "npx @11ty/eleventy --serve",
     "debug": "DEBUG=* npx @11ty/eleventy"
   },
-  "license": "MIT",
+  "license": "CC-BY-SA-4.0",
   "author": {
     "name": "Janina",
     "email": "me@janina.lol",
