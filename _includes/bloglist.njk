@@ -11,7 +11,7 @@
   </li>
 {% endmacro %}
 
-{% if postslist.length == 0 %}
+{% if postslist | length == 0 %}
 Nothing here yet ¯\_(ツ)_/¯
 {% else %}
 <ul class="blog-list">
@@ -21,7 +21,7 @@ Nothing here yet ¯\_(ツ)_/¯
 </ul>
 {% endif %}
 
-{% if collection.tagList.length != 0 %}
+{% if collections.tagList | length > 0 %}
 all tags:
 {% for tag in collections.tagList -%}
   {%- set tag_url %}/tags/{{ tag | slug }}/{% endset %}
