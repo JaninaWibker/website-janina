@@ -29,30 +29,15 @@
     {{ content | safe | trim }}
     <script>
       const THEME_STORAGE_KEY = 'janina.lol.theme'
-      const toggle_theme_uninitialized = (storage_key) => (theme) => {
-        if(theme === 'dark') {
-          window.document.body.classList.add('dark')
-          window.document.body.classList.remove('light')
-          localStorage.setItem(storage_key, 'dark')
-        } else if(theme === 'light') {
-          window.document.body.classList.add('light')
-          window.document.body.classList.remove('dark')
-          localStorage.setItem(storage_key, 'light')
-        } else {
-          window.document.body.classList.toggle('dark')
-          window.document.body.classList.toggle('light')
-          localStorage.setItem(storage_key, localStorage.getItem(storage_key) === 'dark' ? 'light' : 'dark')
-        }
-      }
 
-      const determine_initial_theme_uninitialized = (storage_key) => () => {
+      const determine_initial_theme = () => {
         const is_dark_mode     = window.matchMedia("(prefers-color-scheme: dark)").matches
         const is_light_mode    = window.matchMedia("(prefers-color-scheme: light)").matches
         const is_not_specified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
         const has_no_support   = !is_dark_mode && !is_light_mode && !is_not_specified
 
-        if(localStorage.getItem(storage_key)) {          // saved theme
-          return localStorage.getItem(storage_key)
+        if(localStorage.getItem(THEME_STORAGE_KEY)) {    // saved theme
+          return localStorage.getItem(THEME_STORAGE_KEY)
         } else if(!has_no_support && is_dark_mode) {     // system dark mode
           return 'dark'
         } else if(!has_no_support && is_light_mode) {    // system light mode
@@ -64,10 +49,44 @@
         }
       }
 
-      const toggle_theme = toggle_theme_uninitialized(THEME_STORAGE_KEY)
-      const determine_initial_theme = determine_initial_theme_uninitialized(THEME_STORAGE_KEY)
+      const activate_theme = theme => {
+        if(theme === 'dark') {
+          window.document.body.classList.add('dark')
+          window.document.body.classList.remove('light')
+        } else if(theme === 'light') {
+          window.document.body.classList.add('light')
+          window.document.body.classList.remove('dark')
+        } else {
+          window.document.body.classList.toggle('dark')
+          window.document.body.classList.toggle('light')
+        }
+      }
 
-      toggle_theme(determine_initial_theme())
+      const save_theme = theme => {
+        localStorage.setItem(THEME_STORAGE_KEY, theme)
+      }
+
+      const clear_theme = () => {
+        localStorage.removeItem(THEME_STORAGE_KEY)
+      }
+
+      const toggle_theme = theme => {
+
+        // if undefined, choose the opposite of the current
+        if(theme === undefined) {
+          theme = determine_initial_theme() === 'light' ? 'dark' : 'light'
+        }
+
+        activate_theme(theme)
+        save_theme(theme)
+        return theme
+      }
+
+      activate_theme(determine_initial_theme())
+
+      window.matchMedia("(prefers-color-scheme: dark)").addListener(e => e.matches && activate_theme('dark') && clear_theme())
+      window.matchMedia("(prefers-color-scheme: light)").addListener(e => e.matches && activate_theme('light') && clear_theme())
+
     </script>
 
     <!-- Current page: {{ page.url | url }} -->

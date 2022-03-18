@@ -29,7 +29,7 @@ body {
   // --light-h-color: #f4f4f4;
 }
 
-body, body.light {
+body:not([class]), body.light {
   --background-color: var(--light-background-color);
   --primary-color: var(--light-primary-color);
   --primary-color-opacity: var(--light-primary-color-opacity);
@@ -57,6 +57,39 @@ body.dark {
 
 @media print {
   body, body.light, body.dark {
+    --background-color: var(--light-background-color);
+    --primary-color: var(--light-primary-color);
+    --primary-color-opacity: var(--light-primary-color-opacity);
+    --secondary-color: var(--light-secondary-color);
+    --tertiary-color: var(--light-tertiary-color);
+    --divider-color: var(--light-divider-color);
+
+    --trans-pink-color: var(--light-trans-pink-color);
+    --trans-blue-color: var(--light-trans-blue-color);
+    --trans-white-color: var(--light-trans-white-color);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  h1 {
+    opacity: 0.5;
+  }
+  body:not([class]) {
+    --background-color: var(--dark-background-color);
+    --primary-color: var(--dark-primary-color);
+    --primary-color-opacity: var(--dark-primary-color-opacity);
+    --secondary-color: var(--dark-secondary-color);
+    --tertiary-color: var(--dark-tertiary-color);
+    --divider-color: var(--dark-divider-color);
+
+    --trans-pink-color: var(--dark-trans-pink-color);
+    --trans-blue-color: var(--dark-trans-blue-color);
+    --trans-white-color: var(--dark-trans-white-color);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body:not([class]) {
     --background-color: var(--light-background-color);
     --primary-color: var(--light-primary-color);
     --primary-color-opacity: var(--light-primary-color-opacity);

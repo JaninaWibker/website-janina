@@ -6,6 +6,18 @@ body.dark .error-404 .img {
   background-image: url('/img/bongo-cat-white.png');
 }
 
+@media (prefers-color-scheme: dark) {
+  body:not([class]) .error-404 .img {
+    background-image: url('/img/bongo-cat-white.png');
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body:not([class]) .error-404 .img {
+    background-image: url('/img/bongo-cat-black.png');
+  }
+}
+
 .error-404 {
   width: 380px;
   margin-top: 64px;
