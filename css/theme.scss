@@ -71,9 +71,6 @@ body.dark {
 }
 
 @media (prefers-color-scheme: dark) {
-  h1 {
-    opacity: 0.5;
-  }
   body:not([class]) {
     --background-color: var(--dark-background-color);
     --primary-color: var(--dark-primary-color);
