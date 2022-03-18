@@ -3,7 +3,8 @@
 @use 'header.scss';
 
 html {
-  width: 100vw; // this gets rid of scrollbar problems (apparently)
+  margin-left: calc(100vw - 100%); // this gets rid of scrollbar problems (apparently)
+  // width: 100vw doesn't fix this as soon as a scrollbar is ever shown as then a bottom scrollbar appears
 }
 
 body {
