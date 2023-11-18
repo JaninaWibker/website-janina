@@ -3,7 +3,7 @@
 ## getting started
 
 ```shell
-npm install
+pnpm install
 npx eleventy --serve
 ```
 
