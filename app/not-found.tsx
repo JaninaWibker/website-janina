@@ -1,14 +1,14 @@
-import { Fragment } from 'react'
-import Link from 'next/link'
 import { clsx } from 'clsx'
 import { Underline } from '@/components/Underline'
+import { Divider, FancyLink } from '@/components/FancyLink'
+import { interleave } from '@/utils/interleave'
 
 // placeholder links for now, none of this really exists yet
 const links = [
-  { href: '/', text: 'home' },
-  { href: '/blog', text: 'blog' },
-  { href: '/projects', text: 'projects' },
-  { href: '/about', text: 'about me' }
+  { name: 'home', href: '/' },
+  { name: 'blog', href: '/blog' },
+  { name: 'projects', href: '/projects' },
+  { name: 'about me', href: '/about' }
 ]
 
 const NotFound = () => (
@@ -36,21 +36,16 @@ const NotFound = () => (
 
       <span>maybe you wanted to go here?</span>
       <br />
-      {links.map(({ href, text }, i) => (
-        <Fragment key={href}>
-          <Link
-            href={href}
-            key={href}
-            className="text-primary-9 no-underline"
-            style={{
-              textShadow: '1px 1px var(--mauve-5)'
-            }}
-          >
-            {text}
-          </Link>
-          {i < links.length - 1 && <span className="mx-1.5 select-none text-secondary-6">|</span>}
-        </Fragment>
-      ))}
+      <div className="flex items-center justify-center gap-1.5">
+        {interleave(
+          links.map(({ href, name }) => (
+            <FancyLink href={href} key={href} className="text-primary-9 text-shadow-color-primary-7/50">
+              {name}
+            </FancyLink>
+          )),
+          <Divider className="text-secondary-6 text-shadow-color-secondary-4/50" />
+        )}
+      </div>
     </div>
   </div>
 )
