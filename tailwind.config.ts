@@ -4,7 +4,7 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 const colors = (color: string, count: number, extra: string[] = []): Record<string, string> => {
   const numbers = Array.from({ length: count }, (_, i) => `${i + 1}`)
   const entries = [...numbers, ...extra]
-  return Object.fromEntries(entries.map((name) => [name, `var(--${color}-${name})`]))
+  return Object.fromEntries(entries.map((name) => [name, `rgb(var(--${color}-${name}))`]))
 }
 
 export default {
@@ -14,6 +14,17 @@ export default {
     extend: {
       fontFamily: {
         sans: ['var(--font-pxplus)', ...defaultTheme.fontFamily.sans]
+      },
+      fontSize: {
+        xs: '8px',
+        sm: '12px', // TODO: does this work?
+        base: '16px',
+        lg: '24px',
+        xl: '32px',
+        '2xl': '48px',
+        '3xl': '64px',
+        '4xl': '80px',
+        '5xl': '96px'
       },
       colors: {
         primary: colors('mauve', 12, ['surface']),
