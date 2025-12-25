@@ -1,6 +1,5 @@
 import { clsx } from 'clsx'
-import { Underline } from '@/components/Underline'
-import { Divider, FancyLink } from '@/components/FancyLink'
+import { Underline, Divider, FancyLink } from '@/components/Basic'
 import { interleave } from '@/utils/interleave'
 
 // placeholder links for now, none of this really exists yet

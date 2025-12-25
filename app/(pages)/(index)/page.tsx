@@ -1,5 +1,4 @@
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
+import { Heading1 } from '@/components/Basic'
 
 const ColorShowcase = () => {
   const numbers = Array.from({ length: 12 }, (_, i) => `${i + 1}`)
@@ -43,7 +42,9 @@ const ColorShowcase = () => {
 
 const Home = () => {
   return (
-    <main>
+    <main className="mx-5">
+      <Heading1 underlined>who am i?</Heading1>
+
       <ColorShowcase />
     </main>
   )

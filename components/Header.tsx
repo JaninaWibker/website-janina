@@ -1,12 +1,11 @@
 'use client'
 
+import { clsx } from 'clsx'
+import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
 import { interleave } from '@/utils/interleave'
-import { clsx } from 'clsx'
-import { FancyLink, Divider } from './FancyLink'
-import { useTheme } from 'next-themes'
+import { FancyLink, Divider } from './Basic'
 
-// TODO: modify title on a few pages ("janina's blog", maybe "janina's projects"?)
 const baseTitle = "janina's site"
 const items = [
   { name: 'website', href: '/' },
