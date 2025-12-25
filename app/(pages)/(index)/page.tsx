@@ -42,7 +42,7 @@ const ColorShowcase = () => {
 
 const Home = () => {
   return (
-    <main className="mx-5">
+    <main>
       <Heading1 underlined>who am i?</Heading1>
 
       <ColorShowcase />
