@@ -1,6 +1,8 @@
 import type { Config as TailwindConfig } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
 
+import { textShadowPlugin } from './utils/tailwind-text-shadow'
+
 const colors = (color: string, count: number, extra: string[] = []): Record<string, string> => {
   const numbers = Array.from({ length: count }, (_, i) => `${i + 1}`)
   const entries = [...numbers, ...extra]
@@ -43,6 +45,6 @@ export default {
       }
     }
   },
-  plugins: [],
+  plugins: [textShadowPlugin],
   darkMode: 'selector'
 } satisfies TailwindConfig
