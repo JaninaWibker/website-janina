@@ -10,7 +10,12 @@ const colors = (color: string, count: number, extra: string[] = []): Record<stri
 }
 
 export default {
-  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx}', './utils/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './utils/**/*.{js,ts,jsx,tsx}',
+    './blog/**/*.{js,ts,jsx,tsx,mdx}'
+  ],
   safelist: [{ pattern: /bg-/ }],
   theme: {
     extend: {
