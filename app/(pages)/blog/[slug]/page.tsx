@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { findAll } from '@/utils/blog-posts'
+import { findAll } from '@/utils/posts/blog-posts'
 import { notFound } from 'next/navigation'
 
 type Params = Promise<{ slug: string }>

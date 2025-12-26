@@ -9,9 +9,14 @@ import {
   remarkMdxAnnotations
 } from '@_janina/mdx'
 import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
+
+import rehypeKatex from 'rehype-katex'
+import rehypeToc from '@stefanprobst/rehype-extract-toc'
+import rehypeTocMdx from '@stefanprobst/rehype-extract-toc/mdx'
+import rehypeSlug from 'rehype-slug'
+
 import { remarkReadingTime, remarkMdxReadingTime } from '@/utils/mdx/remark-reading-time'
 
 export const withMdx = mdx({
@@ -30,7 +35,10 @@ export const withMdx = mdx({
       rehypeParseCodeBlocks,
       () => rehypeShiki('rose-pine-moon'),
       rehypeHighlight,
-      rehypeKatex
+      rehypeSlug,
+      rehypeKatex,
+      rehypeToc,
+      rehypeTocMdx
     ],
     recmaPlugins: [recmaMdxAnnotations, recmaNextjsStaticProps]
   }

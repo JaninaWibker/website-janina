@@ -1,5 +1,5 @@
 import { Heading1 } from '@/components/Basic'
-import { findAll } from '@/utils/blog-posts'
+import { findAll } from '@/utils/posts/blog-posts'
 
 const allPostsPromise = findAll()
 
