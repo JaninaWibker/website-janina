@@ -12,3 +12,10 @@ keywords: ['demo']
 blub
 
 $123$
+
+```ts
+export type NativeProps<
+  NativeElement extends keyof JSX.IntrinsicElements,
+  OmittedKeys extends string | number | symbol | undefined = undefined
+> = Omit<JSX.IntrinsicElements[NativeElement], OmittedKeys extends undefined ? 'ref' : 'ref' | OmittedKeys>
+```

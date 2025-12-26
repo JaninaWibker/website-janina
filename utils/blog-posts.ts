@@ -24,15 +24,35 @@ const baseBlogSchema = z.object({
 
 type BaseBlogPost = z.infer<typeof baseBlogSchema>
 
+const readingTimeSchema = z
+  .object({
+    time: z.number(),
+    duration: z.object({
+      hours: z.number(),
+      minutes: z.number(),
+      seconds: z.number()
+    }),
+    words: z.number()
+  })
+  .transform((rt) => ({
+    ...rt,
+    // @ts-expect-error DurationFormat is missing from type definitions (https://github.com/microsoft/TypeScript/issues/60608)
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    text: new Intl.DurationFormat('en', { style: 'short' }).format(rt.duration) as string
+  }))
+
+type ReadingTime = z.infer<typeof readingTimeSchema>
+
 export type BlogPost = BaseBlogPost & {
   slug: string
-  readingTimeMinutes?: number
+  readingTime: ReadingTime
   content: MDXContent
 }
 
 const mdxImportSchema = z.object({
   default: z.unknown(),
-  frontmatter: z.looseObject({})
+  frontmatter: z.looseObject({}),
+  readingTime: readingTimeSchema
 })
 
 export const dynamicImportAndTransformPost = async (unsanitizedFilename: string): Promise<BlogPost> => {
@@ -40,25 +60,20 @@ export const dynamicImportAndTransformPost = async (unsanitizedFilename: string)
   if (filename.includes('..')) {
     throw new Error('Invalid filename, directory traversal detected')
   }
-  const slug = filename.replace(/(\/page)?\.mdx$/, '')
 
-  // TODO: will this just pass through mdx plugins, or does this happen later?
-  // TODO: if yes, can do reading time here too
+  const slug = filename.replace(/(\/page)?\.mdx$/, '')
   const maybeMdxImport = (await import(`@/blog/posts/${filename}`)) as unknown
 
   const mdxImport = mdxImportSchema.parse(maybeMdxImport)
-  const { default: content, frontmatter: maybePost } = mdxImport
+  const { default: content, frontmatter: maybePost, readingTime } = mdxImport
+
+  console.log(maybeMdxImport)
 
   const post = baseBlogSchema.parse(maybePost)
 
-  const readingTimeMinutes = 0
-
-  console.log('wondering if this is just rerun all the time')
-
   return {
     slug,
-    readingTimeMinutes,
-    // TODO: not sure if this is a correct type assertion here
+    readingTime,
     content: content as MDXContent,
     ...post
   }
