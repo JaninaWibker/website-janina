@@ -1,4 +1,4 @@
-import { StyledLink } from './Basic'
+import { Link } from './Basic'
 
 const licenseUrl = 'https://creativecommons.org/licenses/by-sa/4.0/'
 const repoUrl = 'https://github.com/JaninaWibker/website-janina'
@@ -9,15 +9,15 @@ export const Footer = () => (
     <div>
       <span className="">
         {'© janina 2026, licensed under '}
-        <StyledLink href={licenseUrl} externalIcon>
+        <Link href={licenseUrl} externalIcon>
           CC BY-SA
-        </StyledLink>
+        </Link>
         {', '}
       </span>
       <span className="">
-        <StyledLink href={repoUrl} externalIcon>
+        <Link href={repoUrl} externalIcon>
           source code
-        </StyledLink>
+        </Link>
         {' (website)'}
       </span>
     </div>

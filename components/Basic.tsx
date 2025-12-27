@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import NextLink from 'next/link'
 import type { UrlObject } from 'url'
 import { ExternalLink as ExternalLinkIcon } from 'pixelarticons/fonts/react'
 import type { NativeProps } from '@/utils/types'
@@ -24,8 +24,10 @@ export const Heading1 = ({ className, underlined, ...props }: NativeProps<'h1'> 
   </>
 )
 
-export const FancyLink = ({ className, ...props }: NativeProps<'a', 'href'> & { href: string | UrlObject }) => (
-  <Link
+type LinkProps = NativeProps<'a', 'href'> & { href: string | UrlObject }
+
+export const FancyLink = ({ className, ...props }: LinkProps) => (
+  <NextLink
     className={cn(
       'relative',
       'text-secondary-9 text-shadow-color-secondary-7/50',
@@ -49,14 +51,26 @@ export const Divider = ({ className, ...props }: NativeProps<'div', 'children'>)
   </span>
 )
 
-export const StyledLink = ({
-  className,
-  children,
-  externalIcon = false,
-  ...props
-}: NativeProps<'a'> & { externalIcon?: boolean }) => (
-  <a className={cn('inline-flex items-center gap-0.5 text-primary-9 hover:underline', className)} {...props}>
-    <span>{children}</span>
-    {externalIcon && <ExternalLinkIcon viewBox="0 0 24 24" className="mb-1 size-4 [&>*]:fill-current" />}
-  </a>
-)
+export const Link = ({ className, children, href, externalIcon, ...props }: LinkProps & { externalIcon?: boolean }) => {
+  // an anchor tag can only receive string | undefined as href, but a (nextjs) Link component can receive UrlObject as well
+  // as Link is only supposed to be used for internal links, we can safely assume that this means that having href be an
+  // UrlObject means that the link is internal, as this would mean trying to pass this onwards to a Link anyways
+  const isExternal = typeof href === 'string' ? URL.canParse(href) : false
+  const showExternalIcon = isExternal && externalIcon !== false
+  const computedClassName = cn('inline-flex items-center gap-0.5 text-primary-9 hover:underline', className)
+
+  if (isExternal) {
+    return (
+      <a className={computedClassName} href={href as string} {...props}>
+        <span>{children}</span>
+        {showExternalIcon && <ExternalLinkIcon viewBox="0 0 24 24" className="mb-1 size-4 [&>*]:fill-current" />}
+      </a>
+    )
+  } else {
+    return (
+      <NextLink className={computedClassName} href={href} {...props}>
+        <span>{children}</span>
+      </NextLink>
+    )
+  }
+}
