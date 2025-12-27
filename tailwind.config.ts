@@ -51,5 +51,5 @@ export default {
     }
   },
   plugins: [textShadowPlugin],
-  darkMode: 'selector'
+  darkMode: ['selector', '[data-theme="dark"]']
 } satisfies TailwindConfig

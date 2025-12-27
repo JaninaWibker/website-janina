@@ -286,3 +286,12 @@ body {
 
   --background: var(--dark-background);
 }
+
+.trans-gradient-stops {
+  --tw-gradient-stops: 
+    theme('colors.trans.blue') 20%,
+    theme('colors.trans.pink') 20% 40%,
+    theme('colors.trans.white') 40% 60%,
+    theme('colors.trans.pink') 60% 80%,
+    theme('colors.trans.blue') 80% 100%;
+}
