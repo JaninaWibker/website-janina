@@ -11,6 +11,7 @@ import {
 import remarkMath from 'remark-math'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
+import remarkGfm from 'remark-gfm'
 
 import rehypeKatex from 'rehype-katex'
 import rehypeToc from '@stefanprobst/rehype-extract-toc'
@@ -23,6 +24,7 @@ export const withMdx = mdx({
   extension: /\.(md|mdx)$/,
   options: {
     remarkPlugins: [
+      [remarkGfm, { singleTilde: false }],
       remarkMath,
       remarkMdxAnnotations,
       remarkFrontmatter,
