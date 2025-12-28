@@ -52,9 +52,6 @@ export const dynamicImportAndTransformPost = async (unsanitizedFilename: string)
   const mdxImport = mdxImportSchema.parse(maybeMdxImport)
   const { default: content, frontmatter: post, readingTime, tableOfContents } = mdxImport
 
-  console.log(maybeMdxImport)
-  console.log(tableOfContents)
-
   return {
     slug,
     readingTime,

@@ -6,10 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: { unoptimized: true },
   devIndicators: false,
-  transpilePackages: ['pixelarticons'],
-  experimental: {
-    mdxRs: false
-  }
+  transpilePackages: ['pixelarticons']
 } satisfies NextConfig
 
 export default withMdx(nextConfig)
