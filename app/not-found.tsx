@@ -6,8 +6,7 @@ import { interleave } from '@/utils/interleave'
 const links = [
   { name: 'home', href: '/' },
   { name: 'blog', href: '/blog' },
-  { name: 'projects', href: '/projects' },
-  { name: 'about me', href: '/about' }
+  { name: 'projects', href: '/projects' }
 ]
 
 const NotFound = () => (
@@ -15,8 +14,8 @@ const NotFound = () => (
     <div
       className={clsx(
         'mx-[21px] mb-4 h-[197px] w-[338px]',
-        'bg-[url(/images/bongo-cat-white.png)]',
-        'dark:bg-[url(/images/bongo-cat-black.png)]'
+        'dark:bg-[url(/images/bongo-cat-white.png)]',
+        'bg-[url(/images/bongo-cat-black.png)]'
       )}
       style={{
         imageRendering: 'pixelated'
