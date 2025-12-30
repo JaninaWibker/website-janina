@@ -6,7 +6,7 @@ const PageLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Header />
-      <div className="mx-auto max-w-[820px] px-4">
+      <div className="mx-auto max-w-[780px] px-4 pt-4">
         {children}
         <Footer />
       </div>

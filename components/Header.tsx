@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { interleave } from '@/utils/interleave'
 import { FancyLink, Divider } from './Basic'
 
+// TODO: fix resizing things when titleOverride is used with differing lengths
 const baseTitle = "janina's site"
 const items = [
   { name: 'website', href: '/' },

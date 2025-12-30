@@ -55,6 +55,22 @@ export const Input = ({ className, type, ...props }: NativeProps<'input'>) => {
 
 export { Link }
 
+export const H1 = nativeReplacement('h1', 'H1', {
+  className: 'text-shadow text-xl leading-[initial] text-shadow-x-3 text-shadow-y-3 text-shadow-color-secondary-7/50'
+})
+
+export const H2 = nativeReplacement('h2', 'H2', {
+  className: ''
+})
+
+export const H3 = nativeReplacement('h3', 'H3', {
+  className: ''
+})
+
+export const HR = nativeReplacement('hr', 'HR', {
+  className: 'mt-2 mb-2.5 border-none h-px bg-secondary-6'
+})
+
 // commented out components which are still TODO, as undefined is disallowed by MDXComponents
 export const components = {
   strong: Strong,
@@ -66,5 +82,9 @@ export const components = {
   li: ListItem,
   pre: Pre,
   code: Code,
-  input: Input
+  input: Input,
+  h1: H1,
+  h2: H2,
+  h3: H3,
+  hr: HR
 } satisfies MDXComponents

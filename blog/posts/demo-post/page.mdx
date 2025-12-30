@@ -1,11 +1,11 @@
 ---
-title: 'Demo Post'
+title: 'Hi there, demo blog post!'
 description: 'Hey, lorem ipsum dolor sit amet consectetur adipiscing elit.'
 date: '2025-12-26T11:59:06.778Z'
 keywords: ['demo']
 ---
 
-# Hi there, demo blog post!
+import { AsideRoot, AsideTrigger, AsideContent } from '@/components/Aside'
 
 blub, **bold**, _italic_, ~~strikethrough~~, and so on.
 
@@ -24,6 +24,15 @@ export type NativeProps<
   OmittedKeys extends undefined ? "ref" : "ref" | OmittedKeys
 >
 ```
+
+<AsideRoot>
+  <AsideTrigger>
+    this is the trigger **bold**
+  </AsideTrigger>
+  <AsideContent>
+    This is some aside content, with **mdx** support.
+  </AsideContent>
+</AsideRoot>
 
 ## GFM features
 

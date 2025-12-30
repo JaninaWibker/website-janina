@@ -8,9 +8,14 @@ import { type TableOfContents, tableOfContentsSchema } from './table-of-contents
 const baseBlogSchema = z.object({
   title: z.string(),
   description: z.string(),
+  /**
+   * Initial publish date with timezone information
+   * Later updates aren't really a concern right now, but might be added in the future
+   *
+   * Minute, second and millisecond information is automatically stripped to preserve privacy
+   */
   date: z.iso.datetime({ offset: true }).transform((str) => {
     const date = new Date(str)
-    // remove minutes, seconds and milliseconds for privacy
     date.setMinutes(0)
     date.setSeconds(0)
     date.setMilliseconds(0)
@@ -21,7 +26,30 @@ const baseBlogSchema = z.object({
     .optional()
     .transform((arr) => arr ?? []),
   // TODO: strategies for handling images here?
-  bannerImage: z.string().optional()
+  /**
+   * Banner image associated with the blog post
+   */
+  bannerImage: z
+    .union([
+      z.string().transform((src) => ({ src, alt: undefined, layout: 'full' })),
+      z.object({
+        src: z.string(),
+        alt: z.string().optional(),
+        layout: z.enum(['full', 'small'])
+      })
+    ])
+    .optional(),
+  /**
+   * Hide a blog post from being listed and viewed normally
+   *
+   * Idea behind this is that "demo-post-123" which is useful for development and testing can be hidden
+   * from normal view, but won't get out-of-sync with other changes and is still tracked in the repo
+   */
+  hidden: z.boolean().optional().default(false),
+  /**
+   * Pull Request link of the associated post, can be used as a commenting feature
+   */
+  pr: z.url().optional()
 })
 
 type BaseBlogPost = z.infer<typeof baseBlogSchema>
@@ -65,5 +93,5 @@ export const findAll = async () => {
   const filenamePosts = await glob('*/page.mdx', { cwd: './blog/posts' })
 
   const posts = await Promise.all(filenamePosts.map(dynamicImportAndTransformPost))
-  return posts.sort((a, b) => +b.date - +a.date)
+  return posts.filter(({ hidden }) => !hidden).toSorted((a, b) => +b.date - +a.date)
 }

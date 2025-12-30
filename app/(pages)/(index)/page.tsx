@@ -66,7 +66,12 @@ const Home = () => {
         </ListItem>
         <ListItem>Location: Germany</ListItem>
         <ListItem>Age: 26</ListItem>
-        <ListItem>Studying: Computer Science & Maths</ListItem>
+        <ListItem>
+          Studying Computer Science & Maths at <Link href="https://kit.edu">KIT</Link>
+        </ListItem>
+        <ListItem>
+          Working at <Link href="https://quantco.com">QuantCo</Link>
+        </ListItem>
       </UnorderedList>
       <br />
       Mainly progamming in:
