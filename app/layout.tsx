@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
 import localFont from 'next/font/local'
+import { TooltipProvider } from '@/components/Tooltip'
 
 import './index.css'
 
@@ -21,9 +22,11 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang="en" suppressHydrationWarning>
     <head />
     <body className={`bg-base font-sans ${font.variable}`}>
-      <ThemeProvider disableTransitionOnChange storageKey="janina.lol.theme">
-        {children}
-      </ThemeProvider>
+      <TooltipProvider delay={150}>
+        <ThemeProvider disableTransitionOnChange storageKey="janina.lol.theme">
+          {children}
+        </ThemeProvider>
+      </TooltipProvider>
     </body>
   </html>
 )

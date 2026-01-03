@@ -16,7 +16,6 @@ export default {
     './utils/**/*.{js,ts,jsx,tsx}',
     './blog/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  safelist: [{ pattern: /bg-/ }],
   theme: {
     extend: {
       fontFamily: {
@@ -40,7 +39,7 @@ export default {
         neutral: colors('amber', 12),
         positive: colors('grass', 12),
 
-        base: 'var(--background)',
+        base: 'rgb(var(--background))',
 
         trans: {
           pink: '#f7a8b8',

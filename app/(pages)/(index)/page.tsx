@@ -1,46 +1,6 @@
 import { Heading1 } from '@/components/Basic'
 import { UnorderedList, ListItem, Link, Strong } from '@/components/native-replacements'
 
-const ColorShowcase = () => {
-  const numbers = Array.from({ length: 12 }, (_, i) => `${i + 1}`)
-
-  const primaryColors = numbers.map((num) => `bg-primary-${num}`)
-  const secondaryColors = numbers.map((num) => `bg-secondary-${num}`)
-  const negativeColors = numbers.map((num) => `bg-negative-${num}`)
-  const neutralColors = numbers.map((num) => `bg-neutral-${num}`)
-  const positiveColors = numbers.map((num) => `bg-positive-${num}`)
-
-  return (
-    <div className="flex flex-col gap-2 p-4">
-      <div className="flex gap-2">
-        {primaryColors.map((color) => (
-          <div key={color} className={`${color} size-12`} />
-        ))}
-      </div>
-      <div className="flex gap-2">
-        {secondaryColors.map((color) => (
-          <div key={color} className={`${color} size-12`} />
-        ))}
-      </div>
-      <div className="flex gap-2">
-        {negativeColors.map((color) => (
-          <div key={color} className={`${color} size-12`} />
-        ))}
-      </div>
-      <div className="flex gap-2">
-        {neutralColors.map((color) => (
-          <div key={color} className={`${color} size-12`} />
-        ))}
-      </div>
-      <div className="flex gap-2">
-        {positiveColors.map((color) => (
-          <div key={color} className={`${color} size-12`} />
-        ))}
-      </div>
-    </div>
-  )
-}
-
 const Home = () => {
   return (
     <main className="lowercase">
@@ -60,9 +20,10 @@ const Home = () => {
         <ListItem>mostly Janina, sometimes Nina</ListItem>
         <ListItem>ProNouns™: she/her</ListItem>
         <ListItem>
-          ADHD
-          <span className="trans-gradient-stops bg-gradient-to-l dark:bg-clip-text dark:text-black/0"> Transfem </span>
-          :3
+          <span className="trans-gradient-stops bg-gradient-to-l dark:bg-clip-text dark:text-black/0">
+            {' '}
+            Transfem :3
+          </span>
         </ListItem>
         <ListItem>Location: Germany</ListItem>
         <ListItem>Age: 26</ListItem>
