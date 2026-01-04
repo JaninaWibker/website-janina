@@ -1,7 +1,9 @@
 import type { MDXComponents } from 'mdx/types'
-import { components } from '@/components/native-replacements'
+import { components as defaultComponents } from '@/components/native-replacements'
+import { codeComponents } from './components/Code'
 
-export const useMDXComponents = (defaultComponents: MDXComponents): MDXComponents => ({
-  ...components,
-  ...defaultComponents
+export const useMDXComponents = (components: MDXComponents): MDXComponents => ({
+  ...defaultComponents,
+  ...codeComponents,
+  ...components
 })

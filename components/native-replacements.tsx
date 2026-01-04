@@ -5,15 +5,19 @@ import { cn } from '@/utils/common'
 import type { NativeProps } from '@/utils/types'
 import { Link } from '@/components/Basic'
 
-const nativeReplacement = <Tag extends keyof JSX.IntrinsicElements>(
+export const nativeReplacement = <Tag extends keyof JSX.IntrinsicElements>(
   tag: Tag,
   name: string,
   { className, ...initialProps }: NativeProps<Tag, 'className'> & { className?: ClassValue }
 ) => {
   const NativeComponent = tag
-  const GeneratedComponent: React.FC<NativeProps<Tag>> = ({ className: innerClassName, ...props }) => (
+  const GeneratedComponent: React.FC<NativeProps<Tag> & { 'data-unstyled'?: boolean }> = ({
+    className: innerClassName,
+    'data-unstyled': dataUnstyled = false,
+    ...props
+  }) => (
     // @ts-expect-error idk how to type this correctly
-    <NativeComponent className={cn(className, innerClassName)} {...initialProps} {...props} />
+    <NativeComponent className={cn(!dataUnstyled && className, innerClassName)} {...initialProps} {...props} />
   )
 
   GeneratedComponent.displayName = name
@@ -35,11 +39,54 @@ export const OrderedList = nativeReplacement('ol', 'OrderedList', { className: '
 export const ListItem = nativeReplacement('li', 'ListItem', { className: '' })
 
 // I think styling the pre tag makes more sense, but styling code blocks is still a bit far away on the roadmap
+
+export const Figure = ({ className, ...props }: NativeProps<'figure'>) => {
+  const isCodeblock = 'data-rehype-pretty-code-figure' in props
+
+  return <figure className={cn(isCodeblock && 'my-4 -ml-2', className)} {...props} />
+}
+export const FigureCaption = ({ className, ...props }: NativeProps<'figure'>) => {
+  const isCodeblockTitle = 'data-rehype-pretty-code-title' in props
+  const isCodeblockCaption = 'data-rehype-pretty-code-caption' in props
+
+  return (
+    <figcaption
+      className={cn(
+        isCodeblockTitle &&
+          'isolate -mb-0.5 w-fit border-2 border-secondary-7 bg-secondary-1 px-2 text-sm text-secondary-11',
+        isCodeblockCaption && 'py-2 text-center',
+        className
+      )}
+      {...props}
+    />
+  )
+}
 export const Pre = nativeReplacement('pre', 'Pre', {
-  className:
-    '[&_span]:bg-[var(--shiki-light-bg)] dark:[&_span]:bg-[var(--shiki-dark-bg)] [&_span]:text-[var(--shiki-light)] dark:[&_span]:text-[var(--shiki-dark)]'
+  className: `group/codeblock ui-codeblock border-2 border-secondary-7 bg-secondary-1 px-2 py-1 focus:outline-none`
 })
 export const Code = nativeReplacement('code', 'Code', { className: 'font-sans' })
+
+export const Mark = ({ className, ...props }: NativeProps<'mark'>) => {
+  const isHighlightedChars = 'data-highlighted-chars' in props && 'data-chars-id' in props
+  const highlightId = isHighlightedChars ? (props['data-chars-id'] as string) : undefined
+
+  const isValidHighlightedChars = highlightId && ['red', 'green', 'yellow', 'mauve', 'fuchsia'].includes(highlightId)
+
+  return (
+    <mark
+      className={cn(
+        isValidHighlightedChars && 'text-shadow -mx-0.5 -my-px px-0.5 py-px text-shadow-x-1 text-shadow-y-1',
+        highlightId === 'red' && 'bg-negative-7 text-shadow-color-negative-9/50',
+        highlightId === 'green' && 'bg-positive-7 text-shadow-color-positive-9/50',
+        highlightId === 'yellow' && 'bg-neutral-8 text-shadow-color-neutral-9/50',
+        highlightId === 'mauve' && 'bg-primary-7 text-shadow-color-primary-9/50',
+        highlightId === 'fuchsia' && 'bg-secondary-7 text-shadow-color-secondary-9/50',
+        className
+      )}
+      {...props}
+    />
+  )
+}
 
 export const Input = ({ className, type, ...props }: NativeProps<'input'>) => {
   if (type === 'checkbox' && props.disabled) {
@@ -83,8 +130,11 @@ export const components = {
   ul: UnorderedList,
   ol: OrderedList,
   li: ListItem,
+  figure: Figure,
+  figcaption: FigureCaption,
   pre: Pre,
   code: Code,
+  mark: Mark,
   input: Input,
   h1: H1,
   h2: H2,

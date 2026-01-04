@@ -4,7 +4,7 @@ import type { ReactNode, ComponentProps, PropsWithChildren } from 'react'
 import { Tooltip as TooltipBaseUi } from '@base-ui/react/tooltip'
 import { cn } from '@/utils/common'
 
-const ArrowSvg = (props: ComponentProps<'svg'>) => (
+export const ArrowSvg = (props: ComponentProps<'svg'>) => (
   <svg width="14" height="8" viewBox="0 0 14 8" fill="none" {...props}>
     <path d="M12 2V4H10V6H8V8H6V6H4V4H2V2H0V0H14V2H12Z" className="fill-secondary-4 dark:fill-secondary-3" />
     <path
@@ -41,10 +41,13 @@ const TooltipArrow = ({ className, ...props }: ComponentProps<typeof TooltipBase
   />
 )
 
+const TooltipPositioner = (props: ComponentProps<typeof TooltipBaseUi.Positioner>) => (
+  <TooltipBaseUi.Positioner sideOffset={8} alignOffset={0} arrowPadding={8} collisionPadding={2} {...props} />
+)
+
 const TooltipRoot = TooltipBaseUi.Root
 const TooltipTrigger = TooltipBaseUi.Trigger
 const TooltipPortal = TooltipBaseUi.Portal
-const TooltipPositioner = TooltipBaseUi.Positioner
 const TooltipProvider = TooltipBaseUi.Provider
 
 const TooltipPrimitive = {
@@ -82,7 +85,7 @@ const Tooltip = ({
     <TooltipPrimitive.Root>
       <TooltipPrimitive.Trigger>{children}</TooltipPrimitive.Trigger>
       <TooltipPrimitive.Portal className={disableHoverableContent ? 'pointer-events-none' : undefined}>
-        <TooltipPrimitive.Positioner side={side} sideOffset={8} alignOffset={0} arrowPadding={8} collisionPadding={2}>
+        <TooltipPrimitive.Positioner side={side}>
           <TooltipPrimitive.Popup className={className}>
             {arrow && (
               <TooltipPrimitive.Arrow>

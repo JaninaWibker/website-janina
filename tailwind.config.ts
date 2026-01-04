@@ -14,7 +14,8 @@ export default {
     './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './utils/**/*.{js,ts,jsx,tsx}',
-    './blog/**/*.{js,ts,jsx,tsx,mdx}'
+    './blog/**/*.{js,ts,jsx,tsx,mdx}',
+    './packages/twoslash/src/**/*.ts'
   ],
   theme: {
     extend: {

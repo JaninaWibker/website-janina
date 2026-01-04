@@ -2,289 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './colors.css';
+
 body {
   -webkit-font-smoothing: antialiased;
-}
-
-:root {
-  --dark-mauve-1: 21 14 23;
-  --dark-mauve-2: 31 18 34;
-  --dark-mauve-3: 52 24 59;
-  --dark-mauve-4: 68 25 79;
-  --dark-mauve-5: 80 33 92;
-  --dark-mauve-6: 94 45 106;
-  --dark-mauve-7: 116 60 130;
-  --dark-mauve-8: 148 79 166;
-  --dark-mauve-9: 182 75 208;
-  --dark-mauve-10: 168 60 194;
-  --dark-mauve-11: 234 144 255;
-  --dark-mauve-12: 243 211 251;
-  --dark-mauve-surface: 45 19 51 0.502;
-
-  --light-mauve-1: 254 252 255;
-  --light-mauve-2: 253 247 254;
-  --light-mauve-3: 250 235 254;
-  --light-mauve-4: 246 222 253;
-  --light-mauve-5: 241 208 249;
-  --light-mauve-6: 233 192 243;
-  --light-mauve-7: 222 171 235;
-  --light-mauve-8: 208 142 225;
-  --light-mauve-9: 182 75 208;
-  --light-mauve-10: 167 64 191;
-  --light-mauve-11: 151 54 174;
-  --light-mauve-12: 84 18 100;
-  --light-mauve-surface: 253 245 254 0.8;
-
-  --dark-fuchsia-1: 36 11 24;
-  --dark-fuchsia-2: 43 18 31;
-  --dark-fuchsia-3: 57 22 40;
-  --dark-fuchsia-4: 71 21 48;
-  --dark-fuchsia-5: 84 22 56;
-  --dark-fuchsia-6: 98 27 67;
-  --dark-fuchsia-7: 121 30 82;
-  --dark-fuchsia-8: 164 36 111;
-  --dark-fuchsia-9: 184 46 126;
-  --dark-fuchsia-10: 199 64 139;
-  --dark-fuchsia-11: 252 135 194;
-  --dark-fuchsia-12: 255 231 241;
-  --dark-fuchsia-surface: 0 0 0 0.051;
-
-  --light-fuchsia-1: 255 248 254;
-  --light-fuchsia-2: 255 241 253;
-  --light-fuchsia-3: 255 227 245;
-  --light-fuchsia-4: 255 215 239;
-  --light-fuchsia-5: 255 203 233;
-  --light-fuchsia-6: 255 191 226;
-  --light-fuchsia-7: 255 173 218;
-  --light-fuchsia-8: 255 138 203;
-  --light-fuchsia-9: 223 79 158;
-  --light-fuchsia-10: 208 73 147;
-  --light-fuchsia-11: 163 51 113;
-  --light-fuchsia-12: 69 0 40;
-  --light-fuchsia-surface: 255 255 255 0.8;
-
-  --dark-tomato-1: 24 17 17;
-  --dark-tomato-2: 31 21 19;
-  --dark-tomato-3: 57 23 20;
-  --dark-tomato-4: 78 21 17;
-  --dark-tomato-5: 94 28 22;
-  --dark-tomato-6: 110 41 32;
-  --dark-tomato-7: 133 58 45;
-  --dark-tomato-8: 172 77 57;
-  --dark-tomato-9: 229 77 46;
-  --dark-tomato-10: 236 97 66;
-  --dark-tomato-11: 255 151 125;
-  --dark-tomato-12: 251 211 203;
-
-  --light-tomato-1: 255 252 252;
-  --light-tomato-2: 255 248 247;
-  --light-tomato-3: 254 235 231;
-  --light-tomato-4: 255 220 211;
-  --light-tomato-5: 255 205 194;
-  --light-tomato-6: 253 189 175;
-  --light-tomato-7: 245 168 152;
-  --light-tomato-8: 236 142 123;
-  --light-tomato-9: 229 77 46;
-  --light-tomato-10: 221 68 37;
-  --light-tomato-11: 209 52 21;
-  --light-tomato-12: 92 39 31;
-
-  --light-amber-1: 254 253 251;
-  --light-amber-2: 254 251 233;
-  --light-amber-3: 255 247 194;
-  --light-amber-4: 255 238 156;
-  --light-amber-5: 251 229 119;
-  --light-amber-6: 243 214 115;
-  --light-amber-7: 233 193 98;
-  --light-amber-8: 226 163 54;
-  --light-amber-9: 255 197 61;
-  --light-amber-10: 255 186 24;
-  --light-amber-11: 171 100 0;
-  --light-amber-12: 79 52 34;
-
-  --dark-amber-1: 22 18 12;
-  --dark-amber-2: 29 24 15;
-  --dark-amber-3: 48 32 8;
-  --dark-amber-4: 63 39 0;
-  --dark-amber-5: 77 48 0;
-  --dark-amber-6: 92 61 5;
-  --dark-amber-7: 113 79 25;
-  --dark-amber-8: 143 100 36;
-  --dark-amber-9: 255 197 61;
-  --dark-amber-10: 255 214 10;
-  --dark-amber-11: 255 202 22;
-  --dark-amber-12: 255 231 179;
-
-  --dark-grass-1: 14 21 17;
-  --dark-grass-2: 20 26 21;
-  --dark-grass-3: 27 42 30;
-  --dark-grass-4: 29 58 36;
-  --dark-grass-5: 37 72 45;
-  --dark-grass-6: 45 87 54;
-  --dark-grass-7: 54 103 64;
-  --dark-grass-8: 62 121 73;
-  --dark-grass-9: 70 167 88;
-  --dark-grass-10: 83 179 101;
-  --dark-grass-11: 113 208 131;
-  --dark-grass-12: 194 240 194;
-
-  --light-grass-1: 251 254 251;
-  --light-grass-2: 245 251 245;
-  --light-grass-3: 233 246 233;
-  --light-grass-4: 218 241 219;
-  --light-grass-5: 201 232 202;
-  --light-grass-6: 178 221 181;
-  --light-grass-7: 148 206 154;
-  --light-grass-8: 101 186 116;
-  --light-grass-9: 70 167 88;
-  --light-grass-10: 62 155 79;
-  --light-grass-11: 42 126 59;
-  --light-grass-12: 32 60 37;
-
-  --dark-background: 18 18 18;
-  --light-background: 255 255 255;
-}
-
-[data-theme="light"] {
-  --mauve-1: var(--light-mauve-1);
-  --mauve-2: var(--light-mauve-2);
-  --mauve-3: var(--light-mauve-3);
-  --mauve-4: var(--light-mauve-4);
-  --mauve-5: var(--light-mauve-5);
-  --mauve-6: var(--light-mauve-6);
-  --mauve-7: var(--light-mauve-7);
-  --mauve-8: var(--light-mauve-8);
-  --mauve-9: var(--light-mauve-9);
-  --mauve-10: var(--light-mauve-10);
-  --mauve-11: var(--light-mauve-11);
-  --mauve-12: var(--light-mauve-12);
-  --mauve-surface: var(--light-mauve-surface);
-
-  --fuchsia-1: var(--light-fuchsia-1);
-  --fuchsia-2: var(--light-fuchsia-2);
-  --fuchsia-3: var(--light-fuchsia-3);
-  --fuchsia-4: var(--light-fuchsia-4);
-  --fuchsia-5: var(--light-fuchsia-5);
-  --fuchsia-6: var(--light-fuchsia-6);
-  --fuchsia-7: var(--light-fuchsia-7);
-  --fuchsia-8: var(--light-fuchsia-8);
-  --fuchsia-9: var(--light-fuchsia-9);
-  --fuchsia-10: var(--light-fuchsia-10);
-  --fuchsia-11: var(--light-fuchsia-11);
-  --fuchsia-12: var(--light-fuchsia-12);
-  --fuchsia-surface: var(--light-fuchsia-surface);
-
-  --tomato-1: var(--light-tomato-1);
-  --tomato-2: var(--light-tomato-2);
-  --tomato-3: var(--light-tomato-3);
-  --tomato-4: var(--light-tomato-4);
-  --tomato-5: var(--light-tomato-5);
-  --tomato-6: var(--light-tomato-6);
-  --tomato-7: var(--light-tomato-7);
-  --tomato-8: var(--light-tomato-8);
-  --tomato-9: var(--light-tomato-9);
-  --tomato-10: var(--light-tomato-10);
-  --tomato-11: var(--light-tomato-11);
-  --tomato-12: var(--light-tomato-12);
-
-  --amber-1: var(--light-amber-1);
-  --amber-2: var(--light-amber-2);
-  --amber-3: var(--light-amber-3);
-  --amber-4: var(--light-amber-4);
-  --amber-5: var(--light-amber-5);
-  --amber-6: var(--light-amber-6);
-  --amber-7: var(--light-amber-7);
-  --amber-8: var(--light-amber-8);
-  --amber-9: var(--light-amber-9);
-  --amber-10: var(--light-amber-10);
-  --amber-11: var(--light-amber-11);
-  --amber-12: var(--light-amber-12);
-
-  --grass-1: var(--light-grass-1);
-  --grass-2: var(--light-grass-2);
-  --grass-3: var(--light-grass-3);
-  --grass-4: var(--light-grass-4);
-  --grass-5: var(--light-grass-5);
-  --grass-6: var(--light-grass-6);
-  --grass-7: var(--light-grass-7);
-  --grass-8: var(--light-grass-8);
-  --grass-9: var(--light-grass-9);
-  --grass-10: var(--light-grass-10);
-  --grass-11: var(--light-grass-11);
-  --grass-12: var(--light-grass-12);
-
-  --background: var(--light-background);
-}
-
-[data-theme="dark"] {
-  --mauve-1: var(--dark-mauve-1);
-  --mauve-2: var(--dark-mauve-2);
-  --mauve-3: var(--dark-mauve-3);
-  --mauve-4: var(--dark-mauve-4);
-  --mauve-5: var(--dark-mauve-5);
-  --mauve-6: var(--dark-mauve-6);
-  --mauve-7: var(--dark-mauve-7);
-  --mauve-8: var(--dark-mauve-8);
-  --mauve-9: var(--dark-mauve-9);
-  --mauve-10: var(--dark-mauve-10);
-  --mauve-11: var(--dark-mauve-11);
-  --mauve-12: var(--dark-mauve-12);
-  --mauve-surface: var(--dark-mauve-surface);
-
-  --fuchsia-1: var(--dark-fuchsia-1);
-  --fuchsia-2: var(--dark-fuchsia-2);
-  --fuchsia-3: var(--dark-fuchsia-3);
-  --fuchsia-4: var(--dark-fuchsia-4);
-  --fuchsia-5: var(--dark-fuchsia-5);
-  --fuchsia-6: var(--dark-fuchsia-6);
-  --fuchsia-7: var(--dark-fuchsia-7);
-  --fuchsia-8: var(--dark-fuchsia-8);
-  --fuchsia-9: var(--dark-fuchsia-9);
-  --fuchsia-10: var(--dark-fuchsia-10);
-  --fuchsia-11: var(--dark-fuchsia-11);
-  --fuchsia-12: var(--dark-fuchsia-12);
-  --fuchsia-surface: var(--dark-fuchsia-surface);
-
-  --tomato-1: var(--dark-tomato-1);
-  --tomato-2: var(--dark-tomato-2);
-  --tomato-3: var(--dark-tomato-3);
-  --tomato-4: var(--dark-tomato-4);
-  --tomato-5: var(--dark-tomato-5);
-  --tomato-6: var(--dark-tomato-6);
-  --tomato-7: var(--dark-tomato-7);
-  --tomato-8: var(--dark-tomato-8);
-  --tomato-9: var(--dark-tomato-9);
-  --tomato-10: var(--dark-tomato-10);
-  --tomato-11: var(--dark-tomato-11);
-  --tomato-12: var(--dark-tomato-12);
-
-  --amber-1: var(--dark-amber-1);
-  --amber-2: var(--dark-amber-2);
-  --amber-3: var(--dark-amber-3);
-  --amber-4: var(--dark-amber-4);
-  --amber-5: var(--dark-amber-5);
-  --amber-6: var(--dark-amber-6);
-  --amber-7: var(--dark-amber-7);
-  --amber-8: var(--dark-amber-8);
-  --amber-9: var(--dark-amber-9);
-  --amber-10: var(--dark-amber-10);
-  --amber-11: var(--dark-amber-11);
-  --amber-12: var(--dark-amber-12);
-
-  --grass-1: var(--dark-grass-1);
-  --grass-2: var(--dark-grass-2);
-  --grass-3: var(--dark-grass-3);
-  --grass-4: var(--dark-grass-4);
-  --grass-5: var(--dark-grass-5);
-  --grass-6: var(--dark-grass-6);
-  --grass-7: var(--dark-grass-7);
-  --grass-8: var(--dark-grass-8);
-  --grass-9: var(--dark-grass-9);
-  --grass-10: var(--dark-grass-10);
-  --grass-11: var(--dark-grass-11);
-  --grass-12: var(--dark-grass-12);
-
-  --background: var(--dark-background);
 }
 
 .trans-gradient-stops {
@@ -294,4 +15,70 @@ body {
     theme('colors.trans.white') 40% 60%,
     theme('colors.trans.pink') 60% 80%,
     theme('colors.trans.blue') 80% 100%;
+}
+
+.ui-codeinline, span[data-rehype-pretty-code-figure] > code {
+  & span[style] {
+    @apply text-[var(--shiki-light)] dark:text-[var(--shiki-dark)];
+    @apply bg-[var(--shiki-light-bg)] dark:bg-[var(--shiki-dark-bg)];
+  }
+}
+
+.ui-codeblock {
+  & span[style] {
+    @apply text-[var(--shiki-light)] dark:text-[var(--shiki-dark)];
+    @apply bg-[var(--shiki-light-bg)] dark:bg-[var(--shiki-dark-bg)];
+  }
+
+  [data-highlighted-line] {
+    @apply bg-secondary-3 -mr-2 -ml-2.5 pl-2 pr-2 border-l-2 border-secondary-10;
+  }
+
+  code[data-line-numbers] > [data-line], &.has-diff > code > [data-line] {
+
+    &:not(.diff):before {
+      counter-increment: line;
+      content: counter(line);
+    }
+
+    &:before {
+      @apply mr-4 inline-block text-right text-secondary-6;
+    }
+
+    &[data-highlighted-line]:not(.diff):before {
+      @apply text-secondary-9;
+    }
+
+    &.diff.add {
+      @apply bg-positive-3 before:text-positive-7 before:content-['+'] -mr-2 -ml-2.5 pl-2 pr-2 border-l-2 border-positive-8;
+    }
+
+    &.diff.remove {
+      @apply bg-negative-3 before:text-negative-7 before:content-['-'] -mr-2 -ml-2.5 pl-2 pr-2 border-l-2 border-negative-8;
+    }
+  }
+ 
+  code[data-line-numbers] {
+    counter-reset: line
+  }
+
+  code[data-line-numbers-max-digits="1"]>[data-line]::before {
+    width: 12px;
+  }
+
+  code[data-line-numbers-max-digits="2"]>[data-line]::before {
+    width: 20px;
+  }
+
+  code[data-line-numbers-max-digits="3"]>[data-line]::before {
+    width: 28px;
+  }
+
+  code[data-line-numbers-max-digits="4"]>[data-line]::before {
+    width: 36px;
+  }
+}
+
+.twoslash-completion-cursor::before {
+  @apply content-['_'] w-0.5 h-[18px] bg-secondary-7 leading-[initial];
 }

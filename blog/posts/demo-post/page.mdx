@@ -18,8 +18,34 @@ blub, **bold**, _italic_, ~~strikethrough~~, and so on.
 
 $\displaystyle{\sum_{k=1}^n a^k}$
 
-```ts
+This is inline code with syntax highlighting: `console.log('meow'){:ts}`
+
+Can also do "context aware inline code": `thisIsAKeyword{:.keyword}`, `thisIsAParameter{:.variable.parameter}`
+
+```ts twoslash
+const hi = 'Hello'
+const msg = `${hi}, world`
+//    ^?
+```
+
+---
+
+```ts twoslash showLineNumbers title="file.ts"
+// @noErrors
+console.gro
+//         ^|
+console.log('hi') // [!code ++]
+console.log('hi') // [!code --]
+```
+
+Something in between these two code blocks
+
+```ts twoslash showLineNumbers caption="Caption of the code block"
+// @noErrors
+import type { JSX, DetailedHTMLProps, SVGProps } from 'react'
+// ---cut-before---
 export type NativeProps<
+//          ^^^^^^^^^^^
   NativeElement extends keyof JSX.IntrinsicElements,
   OmittedKeys extends string | number | symbol | undefined = undefined
 > = Omit<
@@ -28,9 +54,16 @@ export type NativeProps<
 >
 ```
 
+Highlighting variables in a code block
+
+```js /age/#red /name/#red /setAge/#green /setName/#yellow /50/#mauve /"Taylor"/#fuchsia
+const [age, setAge] = useState(50);
+const [name, setName] = useState("Taylor");
+```
+
 <AsideRoot>
   <AsideTrigger>
-    this is the trigger **bold**
+    this is the trigger of the aside (with **mdx** support)
   </AsideTrigger>
   <AsideContent>
     This is some aside content, with **mdx** support.

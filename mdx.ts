@@ -10,7 +10,23 @@ import rehypeToc from '@stefanprobst/rehype-extract-toc'
 import rehypeTocMdx from '@stefanprobst/rehype-extract-toc/mdx'
 import rehypeSlug from 'rehype-slug'
 import { rehypePrettyCode } from 'rehype-pretty-code'
-import { transformerTwoslash } from 'fumadocs-twoslash'
+import { transformerTwoslash } from '@_janina/twoslash'
+import { transformerNotationDiff, transformerNotationFocus } from '@shikijs/transformers'
+
+const rehypePrettyCodeOptions = {
+  keepBackground: false,
+  theme: {
+    light: 'rose-pine-dawn',
+    dark: 'rose-pine-moon'
+  },
+  transformers: [
+    transformerNotationDiff({ matchAlgorithm: 'v3' }),
+    transformerNotationFocus(),
+    transformerTwoslash({
+      explicitTrigger: true
+    })
+  ]
+} satisfies Parameters<typeof rehypePrettyCode>[0]
 
 export const withMdx = mdx({
   extension: /\.(md|mdx)$/,
@@ -23,23 +39,7 @@ export const withMdx = mdx({
       remarkReadingTime,
       remarkMdxReadingTime
     ],
-    rehypePlugins: [
-      [
-        rehypePrettyCode,
-        {
-          keepBackground: false,
-          theme: {
-            light: 'rose-pine-dawn',
-            dark: 'rose-pine-moon'
-          },
-          transformers: [transformerTwoslash()]
-        }
-      ],
-      rehypeSlug,
-      rehypeKatex,
-      rehypeToc,
-      rehypeTocMdx
-    ],
+    rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions], rehypeSlug, rehypeKatex, rehypeToc, rehypeTocMdx],
     recmaPlugins: []
   }
 })

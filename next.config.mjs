@@ -9,7 +9,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: { unoptimized: true },
   devIndicators: false,
-  transpilePackages: ['pixelarticons', '@_janina/remark-reading-time']
+  transpilePackages: ['pixelarticons', '@_janina/remark-reading-time', '@_janina/twoslash'],
+  serverExternalPackages: ['twoslash']
 }
 
 export default withMdx(nextConfig)
