@@ -1,4 +1,8 @@
 import { z } from 'zod'
+import { Temporal, toTemporalInstant } from '@js-temporal/polyfill'
+
+// @ts-expect-error polyfill code adding methods which aren't available yet correctly results in a type error
+Date.prototype.toTemporalInstant = toTemporalInstant
 
 export const readingTimeSchema = z
   .object({
@@ -10,11 +14,13 @@ export const readingTimeSchema = z
     }),
     words: z.number()
   })
-  .transform((rt) => ({
-    ...rt,
+  .transform((rt) => {
+    const duration = Temporal.Duration.from(rt.duration)
+    const roundedDuration = duration.round({ smallestUnit: 'minute' })
     // @ts-expect-error DurationFormat is missing from type definitions (https://github.com/microsoft/TypeScript/issues/60608)
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-    text: new Intl.DurationFormat('en', { style: 'short' }).format(rt.duration) as string
-  }))
+    const text = new Intl.DurationFormat('en', { style: 'short' }).format(roundedDuration) as string
+    return { ...rt, text }
+  })
 
 export type ReadingTime = z.infer<typeof readingTimeSchema>
