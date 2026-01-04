@@ -1,0 +1,23 @@
+{
+  "name": "@_janina/remark-reading-time",
+  "type": "module",
+  "version": "1.0.1",
+  "scripts": {
+    "build": "tsdown"
+  },
+  "dependencies": {
+    "estree-util-value-to-estree": "^3.5.0",
+    "mdast-util-to-string": "^4.0.0",
+    "reading-time": "^1.5.0",
+    "tsdown": "^0.19.0-beta.2",
+    "unified": "^11.0.5"
+  },
+  "main": "./src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./transpile": "./src/index.ts"
+  }
+}

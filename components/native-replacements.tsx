@@ -35,7 +35,10 @@ export const OrderedList = nativeReplacement('ol', 'OrderedList', { className: '
 export const ListItem = nativeReplacement('li', 'ListItem', { className: '' })
 
 // I think styling the pre tag makes more sense, but styling code blocks is still a bit far away on the roadmap
-export const Pre = nativeReplacement('pre', 'Pre', {})
+export const Pre = nativeReplacement('pre', 'Pre', {
+  className:
+    '[&_span]:bg-[var(--shiki-light-bg)] dark:[&_span]:bg-[var(--shiki-dark-bg)] [&_span]:text-[var(--shiki-light)] dark:[&_span]:text-[var(--shiki-dark)]'
+})
 export const Code = nativeReplacement('code', 'Code', { className: 'font-sans' })
 
 export const Input = ({ className, type, ...props }: NativeProps<'input'>) => {

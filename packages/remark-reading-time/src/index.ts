@@ -1,7 +1,8 @@
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
 import type { Plugin } from 'unified'
-import { mutateTreeAddExport } from './add-export'
+// TODO: I hate that this has a .ts extension but nextjs is being weird about it
+import { mutateTreeAddExport } from './add-export.ts'
 
 type ReadingTime = {
   /**
@@ -19,10 +20,14 @@ type ReadingTime = {
 export const remarkReadingTime: Plugin = () => (tree, file) => {
   const { time: ms, words } = getReadingTime(toString(tree), { wordsPerMinute: 120 })
 
+  const hours = Math.floor(ms / 3600000)
+  const minutes = Math.floor((ms % 3600000) / 60000)
+  const seconds = Math.floor((ms % 60000) / 1000)
+
   const duration = {
-    hours: Math.floor(ms / 3600000),
-    minutes: Math.floor((ms % 3600000) / 60000),
-    seconds: Math.floor((ms % 60000) / 1000)
+    hours,
+    minutes,
+    seconds
   }
 
   const readingTime = {
