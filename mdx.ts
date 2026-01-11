@@ -3,7 +3,7 @@ import remarkMath from 'remark-math'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import remarkGfm from 'remark-gfm'
-import { remarkReadingTime, remarkMdxReadingTime } from '@_janina/remark-reading-time/transpile'
+import { remarkReadingTime, remarkMdxReadingTime } from '@_janina/remark-reading-time'
 
 import rehypeKatex from 'rehype-katex'
 import rehypeToc from '@stefanprobst/rehype-extract-toc'
