@@ -138,7 +138,7 @@ const Home = () => {
       <br />
       Some are sadly private or not online anymore (slimmed down my &quot;homelab&quot; considerably, which included
       getting rid of a personal git server), but here are some public ones projects:
-      <div className="grid grid-cols-3 gap-3 py-4">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3 py-4">
         {projects.map((project) => (
           <div className="flex flex-col gap-2 border border-secondary-9 p-1" key={project.name}>
             <div className="flex justify-between gap-2 border-b border-secondary-9">

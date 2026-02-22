@@ -17,6 +17,11 @@ body {
     theme('colors.trans.blue') 80% 100%;
 }
 
+.grid-lanes {
+  display: masonry;
+  display: grid-lanes
+}
+
 .ui-codeinline, span[data-rehype-pretty-code-figure] > code {
   & span[style] {
     @apply text-[var(--shiki-light)] dark:text-[var(--shiki-dark)];
