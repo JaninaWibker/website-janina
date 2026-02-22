@@ -25,20 +25,6 @@ const baseBlogSchema = z.object({
     .array(z.string())
     .optional()
     .transform((arr) => arr ?? []),
-  // TODO: strategies for handling images here?
-  /**
-   * Banner image associated with the blog post
-   */
-  bannerImage: z
-    .union([
-      z.string().transform((src) => ({ src, alt: undefined, layout: 'full' })),
-      z.object({
-        src: z.string(),
-        alt: z.string().optional(),
-        layout: z.enum(['full', 'small'])
-      })
-    ])
-    .optional(),
   /**
    * Hide a blog post from being listed and viewed normally
    *

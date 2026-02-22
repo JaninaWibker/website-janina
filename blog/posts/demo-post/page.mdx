@@ -6,6 +6,9 @@ keywords: ['demo']
 ---
 
 import { AsideRoot, AsideTrigger, AsideContent } from '@/components/Aside'
+import { WideImage } from '@/components/Basic'
+
+<WideImage src="/images/test.jpg" alt="This is an alt tag, wohoo!" />
 
 blub, **bold**, _italic_, ~~strikethrough~~, and so on.
 
@@ -13,7 +16,7 @@ blub, **bold**, _italic_, ~~strikethrough~~, and so on.
 
 <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet" />
 
-$123$
+$\displaystyle{\sum_{k=1}^n a^k}$
 
 ```ts
 export type NativeProps<
@@ -39,6 +42,8 @@ export type NativeProps<
 ### Autolink literals
 
 www.example.com, https://example.com, and contact@example.com.
+
+---
 
 ### Footnote
 

@@ -3,6 +3,7 @@ import type { UrlObject } from 'url'
 import { ExternalLink as ExternalLinkIcon } from 'pixelarticons/fonts/react'
 import type { NativeProps } from '@/utils/types'
 import { cn } from '@/utils/common'
+import type { PropsWithChildren } from 'react'
 
 export const Underline = () => (
   <div className="mb-7 ml-1.5 flex h-1 w-[180px]">
@@ -12,6 +13,10 @@ export const Underline = () => (
     <span className="h-1 w-9 bg-trans-pink"></span>
     <span className="h-1 w-9 bg-trans-blue"></span>
   </div>
+)
+
+export const Wide = ({ className, children }: PropsWithChildren<{ className?: string }>) => (
+  <div className={cn('-mx-8', className)}>{children}</div>
 )
 
 export const Heading1 = ({ className, underlined, ...props }: NativeProps<'h1'> & { underlined?: boolean }) => (
@@ -57,7 +62,10 @@ export const Link = ({ className, children, href, externalIcon, ...props }: Link
   // UrlObject means that the link is internal, as this would mean trying to pass this onwards to a Link anyways
   const isExternal = typeof href === 'string' ? URL.canParse(href) : false
   const showExternalIcon = isExternal && externalIcon !== false
-  const computedClassName = cn('inline-flex items-center gap-0.5 text-primary-9 hover:underline', className)
+  const computedClassName = cn(
+    'inline-flex items-center gap-0.5 text-primary-9 underline-offset-[3px] hover:underline',
+    className
+  )
 
   if (isExternal) {
     return (
@@ -74,3 +82,10 @@ export const Link = ({ className, children, href, externalIcon, ...props }: Link
     )
   }
 }
+
+export const WideImage = ({ alt, className, ...props }: NativeProps<'img'>) => (
+  <Wide className="pb-8">
+    <img className={cn('rounded-xl shadow-inner', className)} {...props} alt={alt} />
+    <div className="py-2 text-center">{alt}</div>
+  </Wide>
+)

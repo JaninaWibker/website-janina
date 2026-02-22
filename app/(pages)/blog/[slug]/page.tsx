@@ -47,7 +47,7 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
   if (!metadata) return {}
   if (!post) return {}
 
-  return metadata satisfies Metadata
+  return metadata
 }
 
 const PostPage = async ({ params }: { params: Params }) => {
@@ -59,7 +59,6 @@ const PostPage = async ({ params }: { params: Params }) => {
   if (!post) {
     return notFound()
   }
-
 
   return (
     <main>

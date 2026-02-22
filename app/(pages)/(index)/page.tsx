@@ -1,5 +1,6 @@
 import { Heading1 } from '@/components/Basic'
-import { UnorderedList, ListItem, Link, Strong } from '@/components/native-replacements'
+import { UnorderedList, ListItem, Link, Strong, HR } from '@/components/native-replacements'
+import { Tiles } from '@/components/Tiles'
 
 const Home = () => {
   return (
@@ -14,11 +15,11 @@ const Home = () => {
       <Strong>TypeScript</Strong> (w/ react) and <Strong>Typst</Strong> {'<3'}
       <br />
       <br />
-      about me:
+      About me:
       <br />
       <UnorderedList>
         <ListItem>mostly Janina, sometimes Nina</ListItem>
-        <ListItem>ProNouns™: she/her</ListItem>
+        <ListItem>ProNouns™: she/her (maybe it)</ListItem>
         <ListItem>
           <span className="trans-gradient-stops bg-gradient-to-l dark:bg-clip-text dark:text-black/0">
             {' '}
@@ -49,7 +50,7 @@ const Home = () => {
         <ListItem>(rarely in: Java, C, C++)</ListItem>
       </UnorderedList>
       <br />
-      socials:
+      Socials:
       <br />
       <UnorderedList>
         <ListItem>
@@ -64,8 +65,13 @@ const Home = () => {
         <ListItem>
           email: <Link href="mailto:me@janina.lol">me@janina.lol</Link>
         </ListItem>
+        <ListItem>
+          discord: <Strong>.janina</Strong>
+        </ListItem>
       </UnorderedList>
-      <ColorShowcase />
+      <br />
+      <HR />
+      <Tiles />
     </main>
   )
 }
