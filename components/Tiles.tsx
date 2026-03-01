@@ -21,7 +21,7 @@ const tiles = [
     src: '/images/88x31/concrete.gif',
     href: 'https://concrete.neocities.org/',
     text: 'brutalist aesthethiccc'
-  }, // TODO: why is this 33px tall? :/
+  },
   {
     key: 'arasaka cyberpsychosis',
     src: '/images/88x31/cyberpsychosis-arasaka.gif',
