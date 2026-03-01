@@ -14,7 +14,7 @@ const items = [
   { name: 'projects', href: '/projects' }
 ]
 
-const base = 'absolute size-[128px]'
+const base = 'absolute size-[128px] max-w-none'
 const backdrop = 'bg-primary-9'
 const displacement = 'left-[6px] top-[6px]'
 
@@ -28,8 +28,8 @@ export const Header = () => {
 
   return (
     <div className="w-full pb-8 pt-16">
-      <header className="mx-auto flex w-fit gap-5">
-        <div className="relative size-[134px]" style={{ imageRendering: 'pixelated' }}>
+      <header className="mx-auto flex w-fit gap-5 px-4">
+        <div className="relative size-[134px] shrink-0" style={{ imageRendering: 'pixelated' }}>
           <div className={clsx(base, backdrop, displacement)}></div>
           <img className={clsx(base, displacement, 'opacity-25')} aria-hidden="true" src="/images/pp_smol.png" />
           <div className={clsx(base, backdrop)}></div>
@@ -44,9 +44,11 @@ export const Header = () => {
           />
         </div>
         <div className="flex flex-col gap-2 py-3">
-          <h1 className="text-shadow text-2xl leading-[initial] text-secondary-9 text-shadow-x-4 text-shadow-y-4 text-shadow-color-secondary-7/50">
-            {title}
-          </h1>
+          <div className="flex w-fit items-center">
+            <h1 className="text-shadow text-2xl leading-[initial] text-secondary-9 text-shadow-x-4 text-shadow-y-4 text-shadow-color-secondary-7/50">
+              {title}
+            </h1>
+          </div>
           <div className="flex items-center justify-center gap-2.5">
             {interleave(
               items.map((item) => (
