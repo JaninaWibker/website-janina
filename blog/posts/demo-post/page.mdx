@@ -41,7 +41,7 @@ console.log('hi') // [!code --]
 
 Something in between these two code blocks
 
-```ts twoslash showLineNumbers caption="Caption of the code block"
+```ts twoslash showLineNumbers caption="Caption of the code block" {4}
 // @noErrors
 import type { JSX, DetailedHTMLProps, SVGProps } from 'react'
 // ---cut-before---
@@ -58,6 +58,11 @@ export type NativeProps<
 Highlighting variables in a code block
 
 ```js /age/#red /name/#red /setAge/#green /setName/#yellow /50/#mauve /"Taylor"/#fuchsia
+const [age, setAge] = useState(50);
+const [name, setName] = useState("Taylor");
+```
+
+```js showLineNumbers {1}
 const [age, setAge] = useState(50);
 const [name, setName] = useState("Taylor");
 ```

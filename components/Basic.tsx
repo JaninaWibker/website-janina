@@ -16,7 +16,7 @@ export const Underline = () => (
 )
 
 export const Wide = ({ className, children }: PropsWithChildren<{ className?: string }>) => (
-  <div className={cn('-mx-8', className)}>{children}</div>
+  <div className={cn('-mx-4 md:-mx-8', className)}>{children}</div>
 )
 
 export const Heading1 = ({ className, underlined, ...props }: NativeProps<'h1'> & { underlined?: boolean }) => (

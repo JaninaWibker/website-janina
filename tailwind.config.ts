@@ -47,6 +47,10 @@ export default {
           blue: '#55cdfc',
           white: '#ffffff'
         }
+      },
+      screens: {
+        ...defaultTheme.screens,
+        sm: '544px'
       }
     }
   },

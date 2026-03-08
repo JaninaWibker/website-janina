@@ -62,7 +62,7 @@ const PostPage = async ({ params }: { params: Params }) => {
 
   return (
     <main>
-      <header className="flex flex-col gap-4 px-8 pb-8">
+      <header className="flex flex-col gap-4 px-4 pb-8 md:px-8">
         <div className="flex gap-2">
           <div className="text-shadow shrink-0 text-secondary-9 text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-7/50">
             posted · {formatDate(post.date)}
@@ -75,7 +75,7 @@ const PostPage = async ({ params }: { params: Params }) => {
         <H1>{post.title}</H1>
       </header>
 
-      <article className="px-8">{post.content({})}</article>
+      <article className="px-4 md:px-8">{post.content({})}</article>
     </main>
   )
 }
