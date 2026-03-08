@@ -8,20 +8,22 @@ const allPostsPromise = findAll()
 
 const Post = ({ post }: { post: BlogPost }) => (
   <a href={`/blog/${post.slug}`} className="no-underline">
-    <div key={post.slug} className="group flex flex-col gap-4">
-      <div className="flex gap-2">
-        <div className="text-shadow shrink-0 text-secondary-11 text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-9/50">
-          {formatDate(post.date)}
+    <div key={post.slug} className="group flex h-full flex-col justify-between gap-4">
+      <div className="flex flex-col gap-4">
+        <div className="flex gap-2">
+          <div className="text-shadow shrink-0 text-secondary-11 text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-9/50">
+            {formatDate(post.date)}
+          </div>
+          <div className="my-auto h-0.5 grow bg-secondary-6"></div>
+          <div className="text-shadow shrink-0 text-secondary-11 text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-9/50">
+            {post.readingTime.text} read
+          </div>
         </div>
-        <div className="my-auto h-0.5 grow bg-secondary-6"></div>
-        <div className="text-shadow shrink-0 text-secondary-11 text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-9/50">
-          {post.readingTime.text} read
+        <div className="text-shadow line-clamp-2 text-[24px] leading-[initial] text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-7/50">
+          {post.title}
         </div>
+        <div className="line-clamp-3 text-secondary-11">{post.description}</div>
       </div>
-      <div className="text-shadow text-[24px] leading-[initial] text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-7/50">
-        {post.title}
-      </div>
-      <div className="text-secondary-11">{post.description}</div>
       <div
         className={cn(
           'flex items-center justify-end gap-1 leading-[initial]',
