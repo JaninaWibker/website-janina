@@ -139,6 +139,7 @@
 }
 
 [data-theme="light"] {
+  color-scheme: light;
   --mauve-1: var(--light-mauve-1);
   --mauve-2: var(--light-mauve-2);
   --mauve-3: var(--light-mauve-3);
@@ -209,7 +210,8 @@
   --background: var(--light-background);
 }
 
-[data-theme="dark"] {
+:root[data-theme="dark"], :root:not([data-theme]) {
+  color-scheme: dark;
   --mauve-1: var(--dark-mauve-1);
   --mauve-2: var(--dark-mauve-2);
   --mauve-3: var(--dark-mauve-3);

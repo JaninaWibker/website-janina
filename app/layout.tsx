@@ -23,7 +23,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
     <head />
     <body className={`bg-base font-sans ${font.variable}`}>
       <TooltipProvider delay={150}>
-        <ThemeProvider disableTransitionOnChange storageKey="janina.lol.theme">
+        <ThemeProvider disableTransitionOnChange storageKey="janina.lol.theme" enableColorScheme={false}>
           {children}
         </ThemeProvider>
       </TooltipProvider>

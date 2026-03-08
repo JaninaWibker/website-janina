@@ -89,7 +89,7 @@ const PlainTile = ({ src, text }: Tile) => (
 
 export const Tiles = () => (
   <div className="flex justify-center">
-    <div className="flex w-full flex-wrap gap-2" style={{ imageRendering: 'pixelated' }}>
+    <div className="flex w-full flex-wrap gap-2.5" style={{ imageRendering: 'pixelated' }}>
       {tiles.map(({ key, src, href, text }) => (
         <Tooltip arrow content={text} key={key} disableHoverableContent visible={!!text} className="lowercase">
           {href ? (
