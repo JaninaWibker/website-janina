@@ -31,10 +31,12 @@ const msg = `${hi}, world`
 
 ---
 
-```ts twoslash showLineNumbers title="file.ts"
+```ts twoslash showLineNumbers title="file.ts" {2}
 // @noErrors
 console.gro
 //         ^|
+console.group('hi')
+
 console.log('hi') // [!code ++]
 console.log('hi') // [!code --]
 ```

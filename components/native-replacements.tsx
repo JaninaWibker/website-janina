@@ -61,10 +61,24 @@ export const FigureCaption = ({ className, ...props }: NativeProps<'figure'>) =>
     />
   )
 }
-export const Pre = nativeReplacement('pre', 'Pre', {
-  className: `group/codeblock ui-codeblock border-2 border-secondary-7 bg-secondary-1 px-2 py-1 focus:outline-none`
-})
-export const Code = nativeReplacement('code', 'Code', { className: 'font-sans' })
+
+export const Pre = ({ className, children, ...props }: NativeProps<'pre'>) => (
+  <pre
+    className={cn(
+      'group/codeblock ui-codeblock overflow-x-auto border-b-2 border-t-2 border-secondary-7 bg-secondary-1 focus:outline-none',
+      className
+    )}
+    {...props}
+  >
+    <div className="flex">
+      <div className="sticky left-0 w-0.5 shrink-0 bg-secondary-7" />
+      {children}
+      <div className="sticky right-0 w-0.5 shrink-0 bg-secondary-7" />
+    </div>
+  </pre>
+)
+
+export const Code = nativeReplacement('code', 'Code', { className: 'grow font-sans mx-2 m-1' })
 
 export const Mark = ({ className, ...props }: NativeProps<'mark'>) => {
   const isHighlightedChars = 'data-highlighted-chars' in props && 'data-chars-id' in props

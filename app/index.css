@@ -35,8 +35,16 @@ body {
     @apply bg-[var(--shiki-light-bg)] dark:bg-[var(--shiki-dark-bg)];
   }
 
+  span[data-line] {
+    @apply px-1;
+  }
+
   [data-highlighted-line] {
-    @apply bg-secondary-3 -mr-2 -ml-2.5 pl-2 pr-2 border-l-2 border-secondary-10;
+    @apply bg-secondary-3 -mr-1 pl-1 pr-1;
+
+    &::before {
+      @apply sticky left-0 -ml-2.5 mr-3 border-l-2 border-secondary-10 bg-secondary-3 pl-2 pr-3 h-full;
+    }
   }
 
   code[data-line-numbers] > [data-line], &.has-diff > code > [data-line] {
@@ -47,7 +55,11 @@ body {
     }
 
     &:before {
-      @apply mr-4 inline-block text-right text-secondary-6;
+      @apply sticky left-0 -ml-2.5 mr-3 inline-block border-l-2 border-secondary-7 bg-secondary-1 pl-2 pr-3 text-right text-secondary-6 h-full;
+    }
+
+    &[data-highlighted-line]::before {
+      @apply border-secondary-10 bg-secondary-3;
     }
 
     &[data-highlighted-line]:not(.diff):before {
@@ -55,11 +67,17 @@ body {
     }
 
     &.diff.add {
-      @apply bg-positive-3 before:text-positive-7 before:content-['+'] -mr-2 -ml-2.5 pl-2 pr-2 border-l-2 border-positive-8;
+      @apply bg-positive-3 -ml-1 -mr-1 pl-1 pr-1;
+      &::before {
+        @apply sticky left-0 -ml-1.5 mr-3 border-l-2 border-positive-8 bg-positive-3 pl-2 pr-3 text-positive-7 content-['+'] h-full;
+      }
     }
 
     &.diff.remove {
-      @apply bg-negative-3 before:text-negative-7 before:content-['-'] -mr-2 -ml-2.5 pl-2 pr-2 border-l-2 border-negative-8;
+      @apply bg-negative-3 -ml-1 -mr-1 pl-1 pr-1;
+      &::before {
+        @apply sticky left-0 -ml-1.5 mr-3 border-l-2 border-negative-8 bg-negative-3 pl-2 pr-3 text-negative-7 content-['-'] h-full;
+      }
     }
   }
  
