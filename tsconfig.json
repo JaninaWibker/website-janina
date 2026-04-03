@@ -42,7 +42,7 @@
     // config files
     "eslint.config.ts",
     "postcss.config.js",
-    
+
     // nextjs
     "next-env.d.ts",
     ".next/types/**/*.ts",

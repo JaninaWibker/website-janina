@@ -72,6 +72,13 @@ const tiles = [
     key: "trader-joe's",
     src: '/images/88x31/trader-joes.gif',
     text: 'somewhat obscure reference'
+  },
+  // TODO: should I turn this into a proper gif instead of a png?
+  {
+    key: 'no-ai',
+    src: '/images/88x31/no-ai.png',
+    href: 'https://dbushell.com/ai/',
+    text: 'very much agree (therefore yoinked the button)'
   }
 ] satisfies Tile[]
 

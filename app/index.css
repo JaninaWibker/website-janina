@@ -80,24 +80,24 @@ body {
       }
     }
   }
- 
+
   code[data-line-numbers] {
-    counter-reset: line
+    counter-reset: line;
   }
 
-  code[data-line-numbers-max-digits="1"]>[data-line]::before {
+  code[data-line-numbers-max-digits="1"] > [data-line]::before {
     width: 12px;
   }
 
-  code[data-line-numbers-max-digits="2"]>[data-line]::before {
+  code[data-line-numbers-max-digits="2"] > [data-line]::before {
     width: 20px;
   }
 
-  code[data-line-numbers-max-digits="3"]>[data-line]::before {
+  code[data-line-numbers-max-digits="3"] > [data-line]::before {
     width: 28px;
   }
 
-  code[data-line-numbers-max-digits="4"]>[data-line]::before {
+  code[data-line-numbers-max-digits="4"] > [data-line]::before {
     width: 36px;
   }
 }
