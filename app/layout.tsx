@@ -20,7 +20,9 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: ReactNode }) => (
   <html lang="en" suppressHydrationWarning>
-    <head />
+    <head>
+      <link rel="me" href="https://chaos.social/@janina" />
+    </head>
     <body className={`bg-base font-sans ${font.variable}`}>
       <TooltipProvider delay={150}>
         <ThemeProvider disableTransitionOnChange storageKey="janina.lol.theme" enableColorScheme={false}>
