@@ -120,11 +120,13 @@ export const Input = ({ className, type, ...props }: NativeProps<'input'>) => {
 export { Link }
 
 export const H1 = nativeReplacement('h1', 'H1', {
-  className: 'text-xl leading-[initial] mt-8 mb-4 text-shadow text-shadow-x-3 text-shadow-y-3 text-shadow-color-secondary-7/50'
+  className:
+    'text-xl leading-[initial] mt-8 mb-4 text-shadow text-shadow-x-3 text-shadow-y-3 text-shadow-color-secondary-7/50'
 })
 
 export const H2 = nativeReplacement('h2', 'H2', {
-  className: 'text-lg leading-[initial] mt-6 mb-3 text-shadow text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-7/50'
+  className:
+    'text-lg leading-[initial] mt-6 mb-3 text-shadow text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-7/50'
 })
 
 export const H3 = nativeReplacement('h3', 'H3', {

@@ -40,7 +40,7 @@
   },
   "css": {
     "linter": { "enabled": false },
-    "formatter": { "enabled": true },
+    "formatter": { "enabled": false },
     "assist": { "enabled": false }
   }
 }

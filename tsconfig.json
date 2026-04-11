@@ -11,12 +11,11 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "noUncheckedIndexedAccess": true,
     "allowImportingTsExtensions": true,
     "composite": false,
-    "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
     "declaration": true,
@@ -25,7 +24,6 @@
     "noEmit": true,
     "erasableSyntaxOnly": true,
     "plugins": [{ "name": "next" }],
-
     "declarationDir": "dist",
     "outDir": "dist",
     "baseUrl": ".",
@@ -46,7 +44,8 @@
     // nextjs
     "next-env.d.ts",
     ".next/types/**/*.ts",
-    "next.config.*"
+    "next.config.*",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

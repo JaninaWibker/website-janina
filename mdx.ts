@@ -39,7 +39,13 @@ export const withMdx = mdx({
       remarkReadingTime,
       remarkMdxReadingTime
     ],
-    rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions], rehypeSlug, rehypeKatex, rehypeToc, rehypeTocMdx],
+    rehypePlugins: [
+      [rehypePrettyCode, rehypePrettyCodeOptions],
+      rehypeSlug,
+      rehypeKatex,
+      rehypeToc,
+      rehypeTocMdx
+    ],
     recmaPlugins: []
   }
 })
