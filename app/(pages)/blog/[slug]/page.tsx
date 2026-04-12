@@ -72,7 +72,7 @@ const PostPage = async ({ params }: { params: Params }) => {
             reading time · {post.readingTime.text}
           </div>
         </div>
-        <H1>{post.title}</H1>
+        <H1 className="mb-0 mt-0">{post.title}</H1>
       </header>
 
       <article className="px-4 md:px-8">{post.content({})}</article>

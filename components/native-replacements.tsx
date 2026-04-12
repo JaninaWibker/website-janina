@@ -120,15 +120,23 @@ export const Input = ({ className, type, ...props }: NativeProps<'input'>) => {
 export { Link }
 
 export const H1 = nativeReplacement('h1', 'H1', {
-  className: 'text-shadow text-xl leading-[initial] text-shadow-x-3 text-shadow-y-3 text-shadow-color-secondary-7/50'
+  className: 'text-xl leading-[initial] mt-8 mb-4 text-shadow text-shadow-x-3 text-shadow-y-3 text-shadow-color-secondary-7/50'
 })
 
 export const H2 = nativeReplacement('h2', 'H2', {
-  className: ''
+  className: 'text-lg leading-[initial] mt-6 mb-3 text-shadow text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-7/50'
 })
 
 export const H3 = nativeReplacement('h3', 'H3', {
-  className: ''
+  className: 'text-lg leading-[initial] mt-4 mb-2'
+})
+
+export const H4 = nativeReplacement('h4', 'H4', {
+  className: 'leading-[initial] mt-3 mb-1'
+})
+
+export const H5 = nativeReplacement('h5', 'H5', {
+  className: 'leading-[initial] mt-3 mb-1'
 })
 
 export const HR = nativeReplacement('hr', 'HR', {
@@ -153,5 +161,7 @@ export const components = {
   h1: H1,
   h2: H2,
   h3: H3,
+  h4: H4,
+  h5: H5,
   hr: HR
 } satisfies MDXComponents
