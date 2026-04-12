@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 import type { UrlObject } from 'url'
-import { ExternalLink as ExternalLinkIcon } from 'pixelarticons/fonts/react'
+import { ExternalLinkSharp as ExternalLinkSharpIcon } from 'pixelarticons/react'
 import type { NativeProps } from '@/utils/types'
 import { cn } from '@/utils/common'
 import type { PropsWithChildren } from 'react'
@@ -71,7 +71,7 @@ export const Link = ({ className, children, href, externalIcon, ...props }: Link
     return (
       <a className={computedClassName} href={href as string} {...props}>
         <span>{children}</span>
-        {showExternalIcon && <ExternalLinkIcon viewBox="0 0 24 24" className="mb-1 size-4 [&>*]:fill-current" />}
+        {showExternalIcon && <ExternalLinkSharpIcon viewBox="0 0 24 24" className="mb-1 size-4 [&>*]:fill-current" />}
       </a>
     )
   } else {

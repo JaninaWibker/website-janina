@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next'
-import { withMdx } from './mdx.ts'
+import { withMdx } from './mdx'
 
 const nextConfig = {
   output: 'standalone',
@@ -7,7 +7,6 @@ const nextConfig = {
   reactStrictMode: true,
   images: { unoptimized: true },
   devIndicators: false,
-  transpilePackages: ['pixelarticons', '@_janina/remark-reading-time', '@_janina/twoslash'],
   serverExternalPackages: ['twoslash']
 } satisfies NextConfig
 

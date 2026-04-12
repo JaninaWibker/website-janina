@@ -1,8 +1,7 @@
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
 import type { Plugin } from 'unified'
-// TODO: I hate that this has a .ts extension but nextjs is being weird about it
-import { mutateTreeAddExport } from './add-export.ts'
+import { mutateTreeAddExport } from './add-export'
 
 type ReadingTime = {
   /**

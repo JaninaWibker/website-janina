@@ -1,6 +1,6 @@
 import { Heading1, Link } from '@/components/Basic'
 import { Em, Strong } from '@/components/native-replacements'
-import { Heart as HeartIcon } from 'pixelarticons/fonts/react'
+import { Heart as HeartIcon } from 'pixelarticons/react'
 import type { ReactNode } from 'react'
 
 type LinkType = 'repo' | 'demo' | 'link' | 'pdf' | 'slides' | 'other'
@@ -129,34 +129,34 @@ const projects = [
   }
 ] satisfies Project[]
 
-const Home = () => {
-  return (
-    <main className="lowercase">
-      <Heading1 underlined>projects?</Heading1>
-      GitHub: <Link href="https://github.com/JaninaWibker">JaninaWibker</Link>
-      <br />
-      <br />
-      Some are sadly private or not online anymore (slimmed down my &quot;homelab&quot; considerably, which included
-      getting rid of a personal git server), but here are some public ones projects:
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3 py-4">
-        {projects.map((project) => (
-          <div className="flex flex-col gap-2 border border-secondary-9 p-1" key={project.name}>
-            <div className="flex justify-between gap-2 border-b border-secondary-9">
-              <Strong className="shrink-0">{project.name}</Strong>
-              <div className="flex flex-wrap justify-end gap-1">
-                {project.links.map(({ type, href }) => (
-                  <Link key={href} href={href}>
-                    {type}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <span>{project.description}</span>
-          </div>
+const ProjectPreview = ({ project }: { project: Project }) => (
+  <div className="flex flex-col gap-2 border border-secondary-9 p-1">
+    <div className="flex justify-between gap-2 border-b border-secondary-9">
+      <Strong className="shrink-0">{project.name}</Strong>
+      <div className="flex flex-wrap justify-end gap-1">
+        {project.links.map(({ type, href }) => (
+          <Link key={href} href={href}>
+            {type}
+          </Link>
         ))}
       </div>
-    </main>
-  )
-}
+    </div>
+    <span>{project.description}</span>
+  </div>
+)
+
+const Home = () => (
+  <main className="lowercase">
+    <Heading1 underlined>projects?</Heading1>
+    GitHub: <Link href="https://github.com/JaninaWibker">JaninaWibker</Link>
+    <br />
+    <br />
+    Some are sadly private or not online anymore (slimmed down my &quot;homelab&quot; considerably, which included
+    getting rid of a personal git server), but here are some public ones projects:
+    <div className="grid-lanes grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3 py-4">
+      {projects.map((project) => <ProjectPreview key={project.name} project={project} />)}
+    </div>
+  </main>
+)
 
 export default Home

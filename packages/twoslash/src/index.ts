@@ -1,4 +1,3 @@
-// TODO: adapted from fumadocs-twoslash package
 import type { ShikiTransformer, ShikiTransformerContext } from 'shiki'
 import {
   createTransformerFactory,
@@ -7,8 +6,8 @@ import {
   type TwoslashTypesCache
 } from '@shikijs/twoslash'
 import { createTwoslasher, type TwoslashInstance } from 'twoslash'
-import { renderMarkdown, renderMarkdownInline } from './markdown.ts'
-import { hast } from './hast-modifications.ts'
+import { renderMarkdown, renderMarkdownInline } from './markdown'
+import { hast } from './hast-modifications'
 import type { ElementContent } from 'hast'
 
 export type { TwoslashTypesCache }

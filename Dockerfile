@@ -22,9 +22,8 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
-RUN bun run --cwd /app/packages/twoslash build
-RUN bun run --cwd /app/packages/remark-reading-time build
-RUN bun run --cwd /app build
+RUN bun run build:deps
+RUN bun run build
 
 FROM base AS production
 WORKDIR /app
