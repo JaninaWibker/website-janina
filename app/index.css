@@ -18,6 +18,7 @@ body {
 }
 
 .grid-lanes {
+  display: grid;
   display: masonry;
   display: grid-lanes
 }
