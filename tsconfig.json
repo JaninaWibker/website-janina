@@ -26,7 +26,6 @@
     "plugins": [{ "name": "next" }],
     "declarationDir": "dist",
     "outDir": "dist",
-    "baseUrl": ".",
     "rootDir": ".",
     "paths": {
       "@/*": ["./*"]

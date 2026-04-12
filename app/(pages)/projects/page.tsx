@@ -154,7 +154,9 @@ const Home = () => (
     Some are sadly private or not online anymore (slimmed down my &quot;homelab&quot; considerably, which included
     getting rid of a personal git server), but here are some public ones projects:
     <div className="grid-lanes grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-3 py-4">
-      {projects.map((project) => <ProjectPreview key={project.name} project={project} />)}
+      {projects.map((project) => (
+        <ProjectPreview key={project.name} project={project} />
+      ))}
     </div>
   </main>
 )

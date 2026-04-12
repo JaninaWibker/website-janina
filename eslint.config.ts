@@ -103,13 +103,12 @@ const tsconfig = ({ path: tsconfig }: { path: string }) => [
 ]
 
 const config: ConfigArray = defineConfig(
-  { ignores: ['.next', 'next-env.d.ts', 'postcss.config.js', '**/page.mdx'] },
+  { ignores: ['**/dist/*', '.next', 'next-env.d.ts', 'postcss.config.js', '**/page.mdx'] },
   ...base,
   ...ui({ ignores: ['trans-gradient-stops', 'grid-lanes', 'twoslash-', 'ui-*'] }),
   ...tsconfig({ path: import.meta.dirname }),
   {
     plugins: {
-      // @ts-expect-error nextjs bullshittery
       '@next/next': pluginNext
     }
   }
