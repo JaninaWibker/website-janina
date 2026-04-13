@@ -2,6 +2,7 @@ import { valueToEstree } from 'estree-util-value-to-estree'
 import type { Plugin } from 'unified'
 
 export type Node = Parameters<Exclude<ReturnType<Plugin>, void | undefined>>[0]
+export type VFile = Parameters<Exclude<ReturnType<Plugin>, void | undefined>>[1]
 
 export const mutateTreeAddExport = (tree: Node, name: string, value: unknown) => {
   // @ts-expect-error typing mdx things is super annoying and sort-of just not worth it

@@ -3,20 +3,20 @@ import type { ElementContent } from 'hast'
 
 type RichHastExtensions = Required<Exclude<RendererRichOptions['hast'], undefined>>
 
-export const hoverToken: RichHastExtensions['hoverToken'] = {
+const hoverToken: RichHastExtensions['hoverToken'] = {
   tagName: 'Popover'
 }
 
-export const queryToken: RichHastExtensions['queryToken'] = {
+const queryToken: RichHastExtensions['queryToken'] = {
   tagName: 'QueryToken'
 }
 
-export const hoverPopup: RichHastExtensions['hoverPopup'] = {
+const hoverPopup: RichHastExtensions['hoverPopup'] = {
   tagName: 'PopoverContent'
 }
 
 // TODO: is already a component, so can move over classnames?
-export const hoverCompose: RichHastExtensions['hoverCompose'] = ({ popup, token }) =>
+const hoverCompose: RichHastExtensions['hoverCompose'] = ({ popup, token }) =>
   [
     popup,
     {
@@ -32,19 +32,19 @@ export const hoverCompose: RichHastExtensions['hoverCompose'] = ({ popup, token 
     }
   ] as const
 
-export const popupDocs: RichHastExtensions['popupDocs'] = {
+const popupDocs: RichHastExtensions['popupDocs'] = {
   class: 'text-sm !leading-[20px] !mt-2'
 }
 
-export const popupDocsTags: RichHastExtensions['popupDocsTags'] = {
+const popupDocsTags: RichHastExtensions['popupDocsTags'] = {
   class: 'text-sm !leading-[20px] !mt-2'
 }
 
-export const nodesHighlight: RichHastExtensions['nodesHighlight'] = {
+const nodesHighlight: RichHastExtensions['nodesHighlight'] = {
   class: '-mx-0.5 -my-px px-0.5 py-px text-shadow-x-1 text-shadow-y-1 bg-secondary-7 text-shadow-color-secondary-9/50'
 }
 
-export const popupTypes: RichHastExtensions['popupTypes'] = {
+const popupTypes: RichHastExtensions['popupTypes'] = {
   tagName: 'div',
   class: 'twoslash shiki ui-codeblock',
   children: (v: ElementContent[]) => {

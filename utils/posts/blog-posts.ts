@@ -54,7 +54,7 @@ const mdxImportSchema = z.object({
   tableOfContents: tableOfContentsSchema
 })
 
-export const dynamicImportAndTransformPost = async (unsanitizedFilename: string): Promise<BlogPost> => {
+const dynamicImportAndTransformPost = async (unsanitizedFilename: string): Promise<BlogPost> => {
   const filename = path.normalize(unsanitizedFilename)
   if (filename.includes('..')) {
     throw new Error('Invalid filename, directory traversal detected')

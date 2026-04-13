@@ -1,7 +1,7 @@
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
 import type { Plugin } from 'unified'
-import { mutateTreeAddExport } from './add-export'
+import { type Node, type VFile, mutateTreeAddExport } from './add-export'
 
 type ReadingTime = {
   /**
@@ -38,7 +38,7 @@ export const remarkReadingTime: Plugin = () => (tree, file) => {
   file.data.readingTime = readingTime
 }
 
-export const remarkMdxReadingTime: Plugin = () => (tree, file) => {
+export const remarkMdxReadingTime: Plugin = () => (tree: Node, file: VFile) => {
   const readingTime = file.data.readingTime as ReadingTime | undefined
   if (!readingTime) return
 
