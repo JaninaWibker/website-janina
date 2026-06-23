@@ -23,8 +23,8 @@ export const Header = () => {
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
 
   const pathname = usePathname()
-  const active = items.find((item) => item.href === pathname || (item.href !== '/' && pathname.startsWith(item.href)))!
-  const title = active.titleOverride ?? baseTitle
+  const active = items.find((item) => item.href === pathname || (item.href !== '/' && pathname.startsWith(item.href)))
+  const title = active?.titleOverride ?? baseTitle
 
   return (
     <div className="w-full pb-8 pt-16">

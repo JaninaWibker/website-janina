@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { findAll } from '@/utils/posts/blog-posts'
+import { findAllBlog } from '@/utils/posts/posts'
 import { notFound } from 'next/navigation'
 import { Post } from './post'
 
@@ -9,7 +9,7 @@ type Params = Promise<{ slug: string }>
 export const dynamicParams = false
 
 const computeStaticBlogData = async () => {
-  const posts = await findAll()
+  const posts = await findAllBlog()
 
   const postsByKey = Object.fromEntries(posts.map((post) => [post.slug, post]))
 

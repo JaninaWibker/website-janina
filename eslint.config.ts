@@ -103,7 +103,7 @@ const tsconfig = ({ path: tsconfig }: { path: string }) => [
 ]
 
 const config: ConfigArray = defineConfig(
-  { ignores: ['**/dist/*', '.next', 'next-env.d.ts', 'postcss.config.js', '**/page.mdx'] },
+  { ignores: ['**/dist/*', '.next', 'next-env.d.ts', 'postcss.config.js', '**/*.mdx'] },
   ...base,
   ...ui({ ignores: ['trans-gradient-stops', 'grid-lanes', 'twoslash-', 'ui-*'] }),
   ...tsconfig({ path: import.meta.dirname }),

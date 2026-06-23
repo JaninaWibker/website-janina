@@ -1,8 +1,8 @@
 import { Heading1 } from '@/components/Basic'
 import { PostPreview } from '@/components/PostPreview'
-import { findAll } from '@/utils/posts/blog-posts'
+import { findAllBlog } from '@/utils/posts/posts'
 
-const allPostsPromise = findAll()
+const allPostsPromise = findAllBlog()
 
 const Home = async () => {
   const posts = await allPostsPromise
