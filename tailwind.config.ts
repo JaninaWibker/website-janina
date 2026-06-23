@@ -14,7 +14,7 @@ export default {
     './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './utils/**/*.{js,ts,jsx,tsx}',
-    './blog/**/*.{js,ts,jsx,tsx,mdx}',
+    './posts/**/*.{js,ts,jsx,tsx,mdx}',
     './packages/twoslash/src/**/*.ts'
   ],
   theme: {
@@ -24,7 +24,7 @@ export default {
       },
       fontSize: {
         xs: '8px',
-        sm: '12px', // TODO: does this work?
+        sm: '12px',
         base: '16px',
         lg: '24px',
         xl: '32px',

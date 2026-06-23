@@ -4,7 +4,7 @@ const config = {
   workspaces: {
     '.': {
       entry: [
-        'blog/**/*.{js,jsx,ts,tsx,mdx}',
+        'posts/**/*.{js,jsx,ts,tsx,mdx}',
         'components/**/*.{ts,tsx}',
         '!packages',
         'mdx.ts',

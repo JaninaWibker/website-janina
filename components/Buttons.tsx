@@ -32,7 +32,12 @@ const buttons = [
     href: 'https://github.com/JaninaWibker',
     text: 'JaninaWibker'
   },
-  { key: 'libresprite', src: '/images/88x31/libresprite.png', href: 'https://libresprite.github.io/', text: 'libresprite <3' },
+  {
+    key: 'libresprite',
+    src: '/images/88x31/libresprite.png',
+    href: 'https://libresprite.github.io/',
+    text: 'libresprite <3'
+  },
   { key: 'sdomi.pl', src: 'https://sdomi.pl/img/button.bmp', href: 'https://sdomi.pl/', text: 'sdomi' },
   {
     key: 'trans your gender',
@@ -55,7 +60,12 @@ const buttons = [
     text: 'GPN 23'
   },
   { key: 'css is difficult', src: '/images/88x31/css-is-difficult.gif', text: 'but I still love it' },
-  { key: 'powered-by-estrogen', src: '/images/88x31/hrt.gif', href: 'https://diyhrt.info/', text: 'Backbone of the IT industry'},
+  {
+    key: 'powered-by-estrogen',
+    src: '/images/88x31/hrt.gif',
+    href: 'https://diyhrt.info/',
+    text: 'Backbone of the IT industry'
+  },
   {
     key: '88x31 ',
     src: '/images/88x31/88x31.webp',
@@ -67,7 +77,12 @@ const buttons = [
     src: '/images/88x31/trader-joes.gif',
     text: 'somewhat obscure reference'
   },
-  { key: 'no-ai', src: '/images/88x31/no-ai.png', href: 'https://dbushell.com/ai/', text: 'very much agree (therefore yoinked the button)' }
+  {
+    key: 'no-ai',
+    src: '/images/88x31/no-ai.png',
+    href: 'https://dbushell.com/ai/',
+    text: 'very much agree (therefore yoinked the button)'
+  }
 ] satisfies Tile[]
 
 const LinkTile = ({ src, href, text }: Tile) => (

@@ -61,7 +61,7 @@ const dynamicImportAndTransformPost = async (unsanitizedFilename: string): Promi
   }
 
   const slug = filename.replace(/(\/page)?\.mdx$/, '')
-  const maybeMdxImport = (await import(`@/blog/posts/${filename}`)) as unknown
+  const maybeMdxImport = (await import(`@/posts/blog/${filename}`)) as unknown
 
   const mdxImport = mdxImportSchema.parse(maybeMdxImport)
   const { default: content, frontmatter: post, readingTime, tableOfContents } = mdxImport
@@ -76,7 +76,7 @@ const dynamicImportAndTransformPost = async (unsanitizedFilename: string): Promi
 }
 
 export const findAll = async () => {
-  const filenamePosts = await glob('*/page.mdx', { cwd: './blog/posts' })
+  const filenamePosts = await glob('*/page.mdx', { cwd: './posts/blog' })
 
   const posts = await Promise.all(filenamePosts.map(dynamicImportAndTransformPost))
   return posts.filter(({ hidden }) => !hidden).toSorted((a, b) => +b.date - +a.date)
