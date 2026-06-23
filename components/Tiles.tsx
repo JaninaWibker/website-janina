@@ -16,6 +16,7 @@ const tiles = [
     href: 'https://teamakes.games/',
     text: 'cool bean makes games'
   },
+  { key: 'maia', src: '/images/88x31/maia.png', href: 'https://maia.crimew.gay/', text: 'maia' },
   {
     key: 'concrete neocities',
     src: '/images/88x31/concrete.gif',
@@ -84,13 +85,13 @@ const tiles = [
 
 const LinkTile = ({ src, href, text }: Tile) => (
   <a href={href} target="_blank" rel="noopener noreferrer" className="block">
-    <img width={88} height={31} src={src} alt={text} />
+    <img width={88} height={31} src={src} alt={text} className="text-sm" />
   </a>
 )
 
 const PlainTile = ({ src, text }: Tile) => (
   <div>
-    <img width={88} height={31} src={src} alt={text} />
+    <img width={88} height={31} src={src} alt={text} className="text-sm" />
   </div>
 )
 
