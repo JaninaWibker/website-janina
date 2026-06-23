@@ -17,9 +17,9 @@ export const readingTimeSchema = z
   .transform((rt) => {
     const duration = Temporal.Duration.from(rt.duration)
     const roundedDuration = duration.round({ smallestUnit: 'minute' })
-    // @ts-expect-error DurationFormat is missing from type definitions (https://github.com/microsoft/TypeScript/issues/60608)
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-    const text = new Intl.DurationFormat('en', { style: 'short' }).format(roundedDuration) as string
+    // if rounding results in 0 minutes, the information of which unit is supposed to be the smallest is lost, as all units are set to 0
+    // because of this, DurationFormat#format can't know that we want "0 min" as the output and instead returns an empty string
+    const text = new Intl.DurationFormat('en', { style: 'short' }).format(roundedDuration) || '0 min'
     return { ...rt, text }
   })
 
