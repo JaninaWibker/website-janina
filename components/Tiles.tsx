@@ -9,6 +9,7 @@ type Tile = { key: string; src: string; href?: string; text: string }
 
 // figure out order
 const tiles = [
+  { key: 'janina', src: '/images/88x31/janina.gif', href: 'https://janina.lol', text: 'it meee :3' },
   { key: 'tea', src: '/images/88x31/tea.gif', href: 'https://tea.wtf/', text: 'insanely cool bean' },
   {
     key: 'tea makes games',
@@ -35,7 +36,8 @@ const tiles = [
     href: 'https://github.com/JaninaWibker',
     text: 'JaninaWibker'
   },
-  { key: 'sdomi.pl', src: 'https://sdomi.pl/img/button.bmp', href: 'https://sdomi.pl/', text: 'sdomi' }, // TODO: do I want this?
+  { key: 'libresprite', src: '/images/88x31/libresprite.png', href: 'https://libresprite.github.io/', text: 'libresprite <3' },
+  { key: 'sdomi.pl', src: 'https://sdomi.pl/img/button.bmp', href: 'https://sdomi.pl/', text: 'sdomi' },
   {
     key: 'trans your gender',
     src: '/images/88x31/trans-your-gender.gif',
