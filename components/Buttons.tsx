@@ -4,11 +4,7 @@ import { Tooltip } from './Tooltip'
 
 type Tile = { key: string; src: string; href?: string; text: string }
 
-// TODO: alt tags?
-/* sdomi alt tag: Witch hat on the left, text 'sdomi' on the right */
-
-// figure out order
-const tiles = [
+const buttons = [
   { key: 'janina', src: '/images/88x31/janina.gif', href: 'https://janina.lol', text: 'it meee :3' },
   { key: 'tea', src: '/images/88x31/tea.gif', href: 'https://tea.wtf/', text: 'insanely cool bean' },
   {
@@ -59,12 +55,7 @@ const tiles = [
     text: 'GPN 23'
   },
   { key: 'css is difficult', src: '/images/88x31/css-is-difficult.gif', text: 'but I still love it' },
-  {
-    key: 'powered-by-estrogen',
-    src: '/images/88x31/hrt.gif',
-    href: 'https://diyhrt.info/',
-    text: 'Backbone of the IT industry'
-  },
+  { key: 'powered-by-estrogen', src: '/images/88x31/hrt.gif', href: 'https://diyhrt.info/', text: 'Backbone of the IT industry'},
   {
     key: '88x31 ',
     src: '/images/88x31/88x31.webp',
@@ -76,13 +67,7 @@ const tiles = [
     src: '/images/88x31/trader-joes.gif',
     text: 'somewhat obscure reference'
   },
-  // TODO: should I turn this into a proper gif instead of a png?
-  {
-    key: 'no-ai',
-    src: '/images/88x31/no-ai.png',
-    href: 'https://dbushell.com/ai/',
-    text: 'very much agree (therefore yoinked the button)'
-  }
+  { key: 'no-ai', src: '/images/88x31/no-ai.png', href: 'https://dbushell.com/ai/', text: 'very much agree (therefore yoinked the button)' }
 ] satisfies Tile[]
 
 const LinkTile = ({ src, href, text }: Tile) => (
@@ -97,10 +82,10 @@ const PlainTile = ({ src, text }: Tile) => (
   </div>
 )
 
-export const Tiles = () => (
+export const Buttons = () => (
   <div className="flex justify-center">
     <div className="flex w-full flex-wrap gap-2.5" style={{ imageRendering: 'pixelated' }}>
-      {tiles.map(({ key, src, href, text }) => (
+      {buttons.map(({ key, src, href, text }) => (
         <Tooltip arrow content={text} key={key} disableHoverableContent visible={!!text} className="lowercase">
           {href ? (
             <LinkTile src={src} text={text} href={href} key={key} />

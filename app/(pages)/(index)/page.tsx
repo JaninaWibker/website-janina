@@ -1,6 +1,6 @@
 import { Heading1 } from '@/components/Basic'
 import { UnorderedList, ListItem, Link, Strong, HR } from '@/components/native-replacements'
-import { Tiles } from '@/components/Tiles'
+import { Buttons } from '@/components/Buttons'
 
 const Home = () => {
   return (
@@ -71,7 +71,7 @@ const Home = () => {
       </UnorderedList>
       <br />
       <HR />
-      <Tiles />
+      <Buttons />
     </main>
   )
 }
