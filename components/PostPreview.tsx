@@ -1,4 +1,4 @@
-import { ArrowRight as ArrowRightIcon } from '@/components/arrow-right'
+import { ArrowRightIcon } from '@/components/arrow-right'
 import { cn } from '@/utils/common'
 import { formatDate } from '@/utils/format'
 import type { BlogPost } from '@/utils/posts/blog-posts'
