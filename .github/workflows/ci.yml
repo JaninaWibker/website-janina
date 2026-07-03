@@ -31,19 +31,41 @@ jobs:
       contents: read
     needs: [ci]
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
       - uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
         with:
           registry: "${{ secrets.DOCKER_REGISTRY }}"
           username: "${{ secrets.DOCKER_USERNAME }}"
           password: "${{ secrets.DOCKER_PASSWORD }}"
       - uses: docker/setup-buildx-action@4d04d5d9486b7bd6fa91e7baf45bbb4f8b9deedd # v4.0.0
+
+      # there is no proper versioning scheme for the website, therefore it doesn't make sense to have a normal semver version
+      # derived from tags or something of the sort. other schemes will have to make do:
+      # - calver with hours and minutes as build metadata, e.g. `2026.06.29+1350` as most pushes will be straight to main
+      # - for the occasional push to a branch it makes sense to have `pr-{x}` as tags
+      # - raw commit sha for debugging and distinguishing between builds
+      - uses: docker/metadata-action@80c7e94dd9b9319bd5eb7a0e0fe9291e23a2a2e9 # v6.1.0
+        id: meta
+        env:
+          DOCKER_METADATA_SHORT_SHA_LENGTH: 8
+        with:
+          images: "${{ secrets.DOCKER_REGISTRY }}/website-janina"
+          tags: |
+            type=schedule,pattern={{date 'YYYY.MM.DD+HHmm'}}
+            type=ref,event=pr
+            type=sha
+          labels: |
+            org.opencontainers.image.authors=janina
+
+      # always push, regardless of ci job success or failure, as
+      # - waiting for another job to finish and only pushing if it succeeds is complicated
+      # - waiting until the ci job finishes and only building afterwards is a waste of time
+      # - uploading and downloading an artifact only to then be able to do `needs: [ci, docker]` is slow
+      # - if ci fails, docker build is more likely to fail as well, thus no "broken" image is pushed in those cases anyway
+      # - it is easy to just mentally ignore the pushed image if ci fails afterwards, and having the image can actually sometimes be useful
       - uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f # v7.1.0
         with:
-          context: .
           cache-from: type=gha
           cache-to: type=gha,mode=max
           push: true
-          tags: "${{ secrets.DOCKER_REGISTRY }}/website-janina"
+          tags: "${{ steps.meta.outputs.tags }}"
+          labels: "${{ steps.meta.outputs.labels }}"
