@@ -17,8 +17,8 @@ const base: Linter.Config[] = [
   typescriptConfigs.recommended as Linter.Config,
   typescriptConfigs.recommendedTypeChecked as Linter.Config,
   typescriptConfigs.stylisticTypeChecked as Linter.Config,
-  importConfigs.recommended as Linter.Config,
-  importConfigs.typescript as Linter.Config,
+  importConfigs.recommended,
+  importConfigs.typescript,
   {
     files: ['**/*.{ts,tsx}'],
     languageOptions: {

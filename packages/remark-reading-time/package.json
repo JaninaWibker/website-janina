@@ -18,9 +18,9 @@
   "main": "./src/index.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    },
-    "./transpile": "./src/index.ts"
+      "types": "./dist/index.d.mts",
+      "default": "./src/index.ts",
+      "import": "./dist/index.mjs"
+    }
   }
 }

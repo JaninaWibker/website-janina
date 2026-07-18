@@ -1,0 +1,28 @@
+packages:
+  - .
+  - packages/remark-reading-time
+  - packages/twoslash
+
+# only install packages that are at least 7 days (10,080 minutes) old
+# requires pnpm ^10.16.0
+minimumReleaseAge: 10080
+minimumReleaseAgeStrict: true
+
+# do not allow indirect dependencies to install from e.g. git URLs or tarballs
+blockExoticSubdeps: true
+
+# fail installation if any dependency has an unreviewed lifecycle script
+strictDepBuilds: true
+
+# fail installation if trust level of a package decreased, e.g. earlier versions were signed, new version is unsigned
+# requires pnpm ^10.21.0
+trustPolicy: no-downgrade
+
+trustPolicyExclude:
+  # an actively hostile (and rude) maintainer keeps blocking everything related to trust policy
+  # sadly this person is a maintainer of a few popular packages
+  - semver@6.3.1
+
+allowBuilds:
+  sharp: false
+  unrs-resolver: false
