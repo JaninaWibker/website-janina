@@ -52,8 +52,10 @@ jobs:
           DOCKER_METADATA_SHORT_SHA_LENGTH: 8
         with:
           images: "${{ vars.DOCKER_REGISTRY }}/website-janina"
+
           tags: |
-            type=schedule,pattern={{date 'YYYY.MM.DD+HHmm'}}
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value={{date 'YYYY.MM.DD+HHmm'}}
             type=ref,event=pr
             type=sha
           labels: |
