@@ -84,7 +84,7 @@ export const Link = ({ className, children, href, externalIcon, ...props }: Link
 }
 
 export const WideImage = ({ alt, className, ...props }: NativeProps<'img'>) => (
-  <Wide className="pb-8">
+  <Wide className="mb-8">
     <img className={cn('rounded-xl shadow-inner', className)} {...props} alt={alt} />
     <div className="py-2 text-center">{alt}</div>
   </Wide>

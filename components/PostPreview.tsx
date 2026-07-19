@@ -1,10 +1,11 @@
+import NextLink from 'next/link'
 import { ArrowRightIcon } from '@/components/arrow-right'
 import { cn } from '@/utils/common'
 import { formatDate } from '@/utils/format'
-import type { BlogPost } from '@/utils/posts/blog-posts'
+import type { BlogPost } from '@/utils/posts/schemas'
 
 export const PostPreview = ({ post }: { post: BlogPost }) => (
-  <a href={`/blog/${post.slug}`} className="no-underline">
+  <NextLink href={`/blog/${post.slug}`} className="no-underline">
     <div key={post.slug} className="group flex h-full flex-col justify-between gap-4">
       <div className="flex flex-col gap-4">
         <div className="flex gap-2">
@@ -31,5 +32,5 @@ export const PostPreview = ({ post }: { post: BlogPost }) => (
         Read <ArrowRightIcon viewBox="0 0 24 24" className="inline size-5 [&>*]:fill-current" />
       </div>
     </div>
-  </a>
+  </NextLink>
 )

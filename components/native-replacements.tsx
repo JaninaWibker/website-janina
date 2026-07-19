@@ -24,6 +24,7 @@ export const nativeReplacement = <Tag extends keyof JSX.IntrinsicElements>(
   return GeneratedComponent
 }
 
+export const Paragraph = nativeReplacement('p', 'Paragraph', { className: '' })
 export const Strong = nativeReplacement('strong', 'Strong', {
   className: [
     'font-normal text-secondary-11 text-shadow-color-secondary-9/50',
@@ -31,19 +32,38 @@ export const Strong = nativeReplacement('strong', 'Strong', {
   ]
 })
 export const Em = nativeReplacement('em', 'Em', { className: '' })
-export const Strikethrough = nativeReplacement('s', 'Strikethrough', { className: 'line-through' })
-export const UnorderedList = nativeReplacement('ul', 'UnorderedList', {
-  className: 'list-["-_"] list-outside pl-4'
+export const Strikethrough = nativeReplacement('s', 'Strikethrough', {
+  className: 'line-through decoration-secondary-9 text-secondary-11'
 })
-export const OrderedList = nativeReplacement('ol', 'OrderedList', { className: 'list-decimal' })
+export const UnorderedList = nativeReplacement('ul', 'UnorderedList', { className: 'list-["-_"] list-outside pl-4' })
+export const OrderedList = nativeReplacement('ol', 'OrderedList', { className: 'list-decimal list-outside pl-4' })
 export const ListItem = nativeReplacement('li', 'ListItem', { className: '' })
 
-// I think styling the pre tag makes more sense, but styling code blocks is still a bit far away on the roadmap
+export const Input = ({ className, type, ...props }: NativeProps<'input'>) => {
+  if (type === 'checkbox' && props.disabled) {
+    const left = <span className="text-secondary-9">{'['}</span>
+    const right = <span className="text-secondary-9">{']'}</span>
+    const middle = props.checked ? <span className="text-secondary-11">{'x'}</span> : <span> </span>
+
+    return (
+      <span role="checkbox" aria-checked={props.checked} aria-disabled className="select-none">
+        {left}
+        {middle}
+        {right}
+      </span>
+    )
+  } else {
+    const all = { className, type, ...props }
+    // TODO: is there even anything that would generate this output? it doesn't get triggered
+    // TODO: by using `<input />` manually in mdx, only markdown being turned into jsx
+    return <input {...all} />
+  }
+}
 
 export const Figure = ({ className, ...props }: NativeProps<'figure'>) => {
   const isCodeblock = 'data-rehype-pretty-code-figure' in props
 
-  return <figure className={cn(isCodeblock && 'my-4 -ml-2', className)} {...props} />
+  return <figure className={cn(isCodeblock && '-ml-2', className)} {...props} />
 }
 export const FigureCaption = ({ className, ...props }: NativeProps<'figure'>) => {
   const isCodeblockTitle = 'data-rehype-pretty-code-title' in props
@@ -102,60 +122,60 @@ export const Mark = ({ className, ...props }: NativeProps<'mark'>) => {
   )
 }
 
-export const Input = ({ className, type, ...props }: NativeProps<'input'>) => {
-  if (type === 'checkbox' && props.disabled) {
-    return (
-      <span role="checkbox" aria-checked={props.checked} aria-disabled className="select-none">
-        {props.checked ? '[x]' : '[ ]'}
-      </span>
-    )
-  } else {
-    const all = { className, type, ...props }
-    // TODO: is there even anything that would generate this output? it doesn't get triggered
-    // TODO: by using `<input />` manually in mdx, only markdown being turned into jsx
-    return <input {...all} />
-  }
-}
-
-export { Link }
-
 export const H1 = nativeReplacement('h1', 'H1', {
   className:
-    'text-xl leading-[initial] mt-8 mb-4 text-shadow text-shadow-x-3 text-shadow-y-3 text-shadow-color-secondary-7/50'
+    'text-xl leading-[initial] mt-4 text-shadow text-shadow-x-3 text-shadow-y-3 text-shadow-color-secondary-7/50'
 })
 
 export const H2 = nativeReplacement('h2', 'H2', {
   className:
-    'text-lg leading-[initial] mt-6 mb-3 text-shadow text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-7/50'
+    'text-lg -mb-1 leading-[initial] mt-2 text-shadow text-shadow-x-2 text-shadow-y-2 text-shadow-color-secondary-7/50'
 })
 
 export const H3 = nativeReplacement('h3', 'H3', {
-  className: 'text-lg leading-[initial] mt-4 mb-2'
+  className: 'text-lg -mb-2 leading-[initial]'
 })
 
 export const H4 = nativeReplacement('h4', 'H4', {
-  className: 'leading-[initial] mt-3 mb-1'
+  className: 'leading-[initial] -mb-3'
 })
 
 export const H5 = nativeReplacement('h5', 'H5', {
-  className: 'leading-[initial] mt-3 mb-1'
+  className: 'leading-[initial] -mb-3'
 })
 
 export const HR = nativeReplacement('hr', 'HR', {
-  className: 'mt-2 mb-2.5 border-none h-px bg-secondary-6'
+  className: 'border-none h-0.5 bg-secondary-6'
 })
 
 export const Blockquote = nativeReplacement('blockquote', 'Blockquote', {
-  className: cn(
-    'my-4 -ml-2 border-2 border-secondary-7 bg-secondary-1 p-1',
+  className: [
+    '-ml-2 border-2 border-secondary-7 bg-secondary-1 p-1',
     '[&>p]:-ml-1.5 [&>p]:-mr-1 [&>p]:border-l-2 [&>p]:border-secondary-9 [&>p]:bg-secondary-3 [&>p]:pl-1.5 [&>p]:pr-1'
-  )
+  ]
 })
+
+export const Article = nativeReplacement('article', 'Article', {
+  className: 'flex flex-col gap-y-4'
+})
+
+export const Table = nativeReplacement('table', 'Table', { className: 'w-fit' })
+export const TableHead = nativeReplacement('th', 'TableHead', {
+  className: [
+    'border-2 border-secondary-7 border-b-secondary-9 bg-secondary-1 px-3 py-1 text-left',
+    'font-normal text-secondary-11',
+    'text-shadow-color-secondary-9/50',
+    'text-shadow text-shadow-x-2 text-shadow-y-2'
+  ]
+})
+export const TableData = nativeReplacement('td', 'TableData', { className: 'px-3 py-1 border-2 border-secondary-7' })
 
 // commented out components which are still TODO, as undefined is disallowed by MDXComponents
 export const components = {
+  p: Paragraph,
   strong: Strong,
   em: Em,
+  del: Strikethrough,
   s: Strikethrough,
   a: Link,
   ul: UnorderedList,
@@ -167,11 +187,14 @@ export const components = {
   code: Code,
   mark: Mark,
   input: Input,
+  table: Table,
+  th: TableHead,
+  td: TableData,
   h1: H1,
   h2: H2,
   h3: H3,
   h4: H4,
   h5: H5,
   hr: HR,
-  blockquote: Blockquote,
+  blockquote: Blockquote
 } satisfies MDXComponents

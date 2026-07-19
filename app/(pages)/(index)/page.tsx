@@ -1,5 +1,5 @@
-import { Heading1 } from '@/components/Basic'
-import { UnorderedList, ListItem, Link, Strong, HR } from '@/components/native-replacements'
+import { Heading1, Link } from '@/components/Basic'
+import { UnorderedList, ListItem, Strong, HR } from '@/components/native-replacements'
 import { Buttons } from '@/components/Buttons'
 
 const Home = () => {
@@ -69,8 +69,7 @@ const Home = () => {
           discord: <Strong>.janina</Strong>
         </ListItem>
       </UnorderedList>
-      <br />
-      <HR />
+      <HR className="my-4" />
       <Buttons />
     </main>
   )
