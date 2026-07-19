@@ -145,6 +145,13 @@ export const HR = nativeReplacement('hr', 'HR', {
   className: 'mt-2 mb-2.5 border-none h-px bg-secondary-6'
 })
 
+export const Blockquote = nativeReplacement('blockquote', 'Blockquote', {
+  className: cn(
+    'my-4 -ml-2 border-2 border-secondary-7 bg-secondary-1 p-1',
+    '[&>p]:-ml-1.5 [&>p]:-mr-1 [&>p]:border-l-2 [&>p]:border-secondary-9 [&>p]:bg-secondary-3 [&>p]:pl-1.5 [&>p]:pr-1'
+  )
+})
+
 // commented out components which are still TODO, as undefined is disallowed by MDXComponents
 export const components = {
   strong: Strong,
@@ -165,5 +172,6 @@ export const components = {
   h3: H3,
   h4: H4,
   h5: H5,
-  hr: HR
+  hr: HR,
+  blockquote: Blockquote,
 } satisfies MDXComponents
