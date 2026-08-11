@@ -5,6 +5,7 @@ import { Article, H1, HR, Strong } from '@/components/native-replacements'
 import type { EtcPost } from '@/utils/posts/schemas'
 import { Buttons } from '@/components/Buttons'
 import { cn } from '@/utils/common'
+import IndexPageContent from './index.mdx'
 
 type Folder = {
   slug: string
@@ -101,6 +102,6 @@ export const PostPage = ({ post, ...listProps }: { post: EtcPost } & Omit<ListPr
 
 export const IndexPage = (listProps: Omit<ListProps, 'current'>) => (
   <Wrapper header="Etc" current={undefined} {...listProps}>
-    123
+    {IndexPageContent({})}
   </Wrapper>
 )
