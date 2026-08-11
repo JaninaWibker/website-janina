@@ -1,74 +1,13 @@
-import { Heading1, Link } from '@/components/Basic'
-import { UnorderedList, ListItem, Strong, HR } from '@/components/native-replacements'
+import { Heading1 } from '@/components/Basic'
+import { HR } from '@/components/native-replacements'
 import { Buttons } from '@/components/Buttons'
+import IndexPageContent from './index.mdx'
 
 const Home = () => {
   return (
     <main className="lowercase">
       <Heading1 underlined>who am i?</Heading1>
-      Hi, I&apos;m Janina, 26 y/o student (cs and maths) and web dev :3
-      <br />
-      <br />
-      Interested in all sorts of things including <Strong>design</Strong>, <Strong>ui</Strong>, <Strong>ux</Strong>,{' '}
-      <Strong>web dev</Strong>, trains, lego, compilers, mechanical keyboards, <Strong>computer graphics</Strong>, type
-      systems, embedded systems, ci/cd, graph theory (and maths in general), linux, cooking and more. Lover of{' '}
-      <Strong>TypeScript</Strong> (w/ react) and <Strong>Typst</Strong> {'<3'}
-      <br />
-      <br />
-      About me:
-      <br />
-      <UnorderedList>
-        <ListItem>mostly Janina, sometimes Nina</ListItem>
-        <ListItem>ProNouns™: she/her (maybe it)</ListItem>
-        <ListItem>
-          <span className="trans-gradient-stops bg-gradient-to-l dark:bg-clip-text dark:text-black/0">
-            {' '}
-            Transfem :3
-          </span>
-        </ListItem>
-        <ListItem>Location: Germany</ListItem>
-        <ListItem>Age: 26</ListItem>
-        <ListItem>
-          Studying Computer Science & Maths at <Link href="https://kit.edu">KIT</Link>
-        </ListItem>
-        <ListItem>
-          Working at <Link href="https://quantco.com">QuantCo</Link>
-        </ListItem>
-      </UnorderedList>
-      <br />
-      Mainly progamming in:
-      <br />
-      <UnorderedList>
-        <ListItem>
-          <Strong>TypeScript</Strong> {'<3'} and JavaScript :c
-        </ListItem>
-        <ListItem>
-          <Strong>Typst</Strong> {'<3'}
-        </ListItem>
-        <ListItem>Python</ListItem>
-        <ListItem>Bash, and the likes (we love YAML engineering for CI/CD {'<3'})</ListItem>
-        <ListItem>(rarely in: Java, C, C++)</ListItem>
-      </UnorderedList>
-      <br />
-      Socials:
-      <br />
-      <UnorderedList>
-        <ListItem>
-          fedi: <Link href="https://chaos.social/@janina">@janina@chaos.social</Link>
-        </ListItem>
-        <ListItem>
-          matrix: <Link href="https://matrix.to/#/@janina:entropia.de">@janina:entropia.de</Link>
-        </ListItem>
-        <ListItem>
-          github: <Link href="https://github.com/JaninaWibker">JaninaWibker</Link>
-        </ListItem>
-        <ListItem>
-          email: <Link href="mailto:me@janina.lol">me@janina.lol</Link>
-        </ListItem>
-        <ListItem>
-          discord: <Strong>.janina</Strong>
-        </ListItem>
-      </UnorderedList>
+      {IndexPageContent({})}
       <HR className="my-4" />
       <Buttons />
     </main>
