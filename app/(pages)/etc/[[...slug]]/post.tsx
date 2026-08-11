@@ -30,18 +30,22 @@ const ListItem = ({ post, active }: { post: EtcPost; active: boolean }) => (
     <NextLink
       href={`/etc/${post.slug}`}
       className={cn(
-        'my-1 h-4',
-        'hover:bg-secondary-12 hover:text-secondary-4',
-        'data-[active="true"]:bg-secondary-12 data-[active="true"]:text-secondary-9'
+        'group my-1 inline-flex leading-4',
+        'hover:text-secondary-4',
+        'data-[active="true"]:text-secondary-9'
       )}
       data-active={active}
     >
-      {active ? (
-        <ArrowRightIcon className="-mt-[1.5px] mr-1 inline size-4" />
-      ) : (
-        <div className="mr-1 inline-block size-4 pl-1">{'•'}</div>
-      )}
-      {post.title}
+      <div className="group-hover:bg-secondary-12 group-data-[active='true']:bg-secondary-12">
+        {active ? (
+          <ArrowRightIcon className="-mt-[1.5px] mr-1 inline size-4" />
+        ) : (
+          <div className="mr-1 inline-block size-4 pl-1">{'•'}</div>
+        )}
+      </div>
+      <div>
+        <span className="group-hover:bg-secondary-12 group-data-[active='true']:bg-secondary-12">{post.title}</span>
+      </div>
     </NextLink>
   </li>
 )
