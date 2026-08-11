@@ -22,11 +22,7 @@ export const generateStaticParams = async () => {
   return [...slugs, { slug: undefined }]
 }
 
-// Temporarily disable rendering of this whole sub-tree, until there is enough content to justify enabling it
-const Page = () => notFound()
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const PageDeactivated = async ({ params }: { params: Params }) => {
+const Page = async ({ params }: { params: Params }) => {
   const { slug } = await params
   const { posts, postsByKey } = await staticPostData
 

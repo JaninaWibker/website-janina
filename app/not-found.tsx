@@ -6,7 +6,8 @@ import { interleave } from '@/utils/interleave'
 const links = [
   { name: 'home', href: '/' },
   { name: 'blog', href: '/blog' },
-  { name: 'projects', href: '/projects' }
+  { name: 'projects', href: '/projects' },
+  { name: 'etc', href: '/etc' }
 ]
 
 const NotFound = () => (

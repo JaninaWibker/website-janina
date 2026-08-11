@@ -11,7 +11,8 @@ const baseTitle = "janina's site"
 const items = [
   { name: 'website', href: '/' },
   { name: 'blog', href: '/blog', titleOverride: "janina's blog" },
-  { name: 'projects', href: '/projects' }
+  { name: 'projects', href: '/projects' },
+  { name: 'etc', href: '/etc' }
 ]
 
 const base = 'absolute size-[96px] sm:size-[128px] max-w-none'
