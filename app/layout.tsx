@@ -7,7 +7,7 @@ import { TooltipProvider } from '@/components/Tooltip'
 import './index.css'
 
 const font = localFont({
-  src: '../public/fonts/PxPlus_IBM_VGA8.ttf',
+  src: '../public/fonts/PxPlus_IBM_VGA8-modified.ttf',
   variable: '--font-pxplus'
 })
 
