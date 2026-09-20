@@ -5,7 +5,7 @@ import { Tooltip } from './Tooltip'
 type Tile = { key: string; src: string; href?: string; text: string }
 
 const buttons = [
-  // { key: 'janina', src: '/images/88x31/janina.gif', href: 'https://janina.lol', text: 'it meee :3' },
+  { key: 'janina', src: '/images/88x31/janina.gif', href: 'https://janina.lol', text: 'it meee :3' },
   { key: 'tea', src: '/images/88x31/tea.gif', href: 'https://tea.wtf/', text: 'insanely cool bean' },
   {
     key: 'tea makes games',
