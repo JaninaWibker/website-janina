@@ -3,13 +3,13 @@ import { readingTimeSchema, type ReadingTime } from './reading-time'
 import { tableOfContentsSchema, type TableOfContents } from './table-of-contents'
 import type { MDXContent } from 'mdx/types'
 
-export const baseEtcPostSchema = z.object({
+const baseEtcPostSchema = z.object({
   title: z.string(),
   ordering: z.coerce.number(),
   hidden: z.boolean().optional().default(false)
 })
 
-export const baseBlogPostSchema = z.object({
+const baseBlogPostSchema = z.object({
   title: z.string(),
   description: z.string(),
   /**
@@ -38,8 +38,8 @@ export const baseBlogPostSchema = z.object({
   hidden: z.boolean().optional().default(false)
 })
 
-export type BaseBlogPost = z.infer<typeof baseBlogPostSchema>
-export type BaseEtcPost = z.infer<typeof baseEtcPostSchema>
+type BaseBlogPost = z.infer<typeof baseBlogPostSchema>
+type BaseEtcPost = z.infer<typeof baseEtcPostSchema>
 
 export const mdxImportBlogSchema = z.object({
   default: z.unknown(),
