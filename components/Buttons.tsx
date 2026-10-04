@@ -23,7 +23,7 @@ const buttons = [
   {
     key: 'arasaka cyberpsychosis',
     src: '/images/88x31/cyberpsychosis-arasaka.gif',
-    href: 'https://datakra.sh/logs/confessions-of-a-cyberpunk-rpg-hoarder-help-me-complete-my-library',
+    href: 'https://datakra.sh/logs/cyberpunk-rpg-hoarding',
     text: 'I like distopian cyberpunk settings as a genre, but not irl pls'
   },
   {
