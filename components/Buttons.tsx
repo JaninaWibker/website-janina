@@ -42,7 +42,7 @@ const buttons = [
   {
     key: 'trans your gender',
     src: '/images/88x31/trans-your-gender.gif',
-    href: 'https://diyhrt.market/',
+    href: 'https://valerie.vg/',
     text: 'do it'
   },
   { key: 'hzd', src: '/images/88x31/hzd.png', text: 'I love horizon zero dawn' },
