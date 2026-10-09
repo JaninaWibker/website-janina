@@ -3,7 +3,6 @@ import NextLink from 'next/link'
 import { ArrowRightIcon } from '@/components/arrow-right'
 import { Article, H1, HR, Strong } from '@/components/native-replacements'
 import type { EtcPost } from '@/utils/posts/schemas'
-import { Buttons } from '@/components/Buttons'
 import { cn } from '@/utils/common'
 import IndexPageContent from './index.mdx'
 
@@ -88,9 +87,6 @@ const Wrapper = ({ children, header, ...listProps }: WrapperProps) => (
     </header>
 
     <Article className="px-4 pb-4 md:px-8">{children}</Article>
-
-    <HR className="my-4" />
-    <Buttons />
   </main>
 )
 
